@@ -1,0 +1,225 @@
+@media only screen and (max-width: 750px){
+    .Subwindow{
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+        padding: 20px;
+    }
+    .Modal{
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+        padding: 20px;
+    }
+    .Header_PageNavigation_Title{
+        display: none;
+    }
+    .Header_PageNavigation_Icon{
+        margin-right: 0;
+    }
+    :root{
+        --Element-ContentContainer-MarginnedWidth: calc(100% - 40px);
+    }   
+    .Ribbon{
+        /* height: 50px; */
+        /* width: fit-content; */
+    }
+    .Ribbon_Section{
+        height: 35px;
+
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .Header_StatusTray{
+        display: none;
+    }
+    .Header_PageNavigation_Menu{
+        left: 0px;
+        width: 100%;
+        bottom: 0px;
+        
+        /* margin-bottom: 20px; */
+    }
+    .Header_PageNavigation_Menu[State="Active"]{
+        display: flex;
+        flex-direction: column;
+    }
+    .Header_StatusTray_Menu{
+        transform: translateX(-100%);
+        /* animation-name: unset;
+        animation-fill-mode: unset; */
+        bottom: 0;
+        width: calc(100% - 10px);
+        /* padding-left: 20px; */
+    }
+    .Header_StatusTray_Menu[State="Active"]{
+        display: flex;
+        flex-direction: column;
+    }
+    .Header_StatusTray_Menu_Close{
+        display: block;
+    }
+    .LoadingScreen_Splash_Window{
+        grid-template-rows: 250px 5px;
+        box-shadow: unset;
+        justify-items: center;
+    }
+    .LoadingScreen_Splash_Window_Image{
+        display: none;
+    }
+    .LoadingScreen_Splash_Window_Main{
+        background-color: unset;
+    }
+    .LoadingScreen_Splash_Window_Loader{
+        width: 60%;
+        background-color: unset;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .Toasts{
+        height: 150px;
+	    overflow-y: hidden;
+        left: 0;
+        right: 0;
+        margin: auto;
+        margin-top: 75px;
+    }
+    .Header_Content_Title{
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-height: 400px){
+    .LoadingScreen_Splash_Window{
+        grid-template-rows: 250px 5px;
+        box-shadow: unset;
+        justify-items: center;
+    }
+    .LoadingScreen_Splash_Window_Image{
+        display: none;
+    }
+    .LoadingScreen_Splash_Window_Main{
+        background-color: unset;
+    }
+    .LoadingScreen_Splash_Window_Loader{
+        width: 60%;
+        background-color: unset;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .Sidebar{
+        width: 100% !important;
+        bottom: 0;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        transition: height 0s;
+    }
+    .Sidebar > .Tabs_Vertical_Container_Selector_Item > .Tabs_Vertical_Container_Selector_Item_Text{
+        position: fixed;
+        bottom: 60px;
+        left: 50%;
+        background-color: var(--BG-Color-Overlay-Sidebar);
+        border: solid var(--BG-Color-General-Menus);
+        border-radius: 5px;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        /* display: none; */
+        opacity: 0%;
+        transform: translateX(-50%);
+        pointer-events: none;
+    }
+    .Sidebar > .Tabs_Vertical_Container_Selector_Item:hover > .Tabs_Vertical_Container_Selector_Item_Text{
+        display: block;
+        opacity: 100%;
+        /* transform: translateY(0px); */
+    }
+   .Sidebar > .Tabs_Vertical_Container_Selector_Item[State="Selected"]:hover > .Tabs_Vertical_Container_Selector_Item_Text{
+        border: solid var(--Color-Borders-Hover);
+        background-color: var(--BG-Color-Button-General-Accent-Focus);
+        box-shadow: var(--Element-BoxShadow-Hover);
+    }
+    .Sidebar > .Tabs_Vertical_Container_Selector_Item{
+        margin-left: 5px;
+        min-width: 1px;
+        justify-items: center;
+    }
+    .Sidebar > .Tabs_Vertical_Container_Selector_Item[State="Selected"]{
+        min-width: 80px;
+        grid-template-columns: 1fr 1px;
+    }
+    .MainContent[Style_Margin_Sidebar="Enabled"]{
+        margin-left: unset;
+        width: unset;
+    }
+    .Ribbon[Style_Margin_Sidebar="Enabled"]{
+        margin-left: unset;
+        width: 100%;
+    }
+    .Tab_Container_Content_Item[Tabs_Transition="CurrentTab_Upwards"]{
+        animation-name: Tabs_Transition_CurrentTab_Left;
+    }
+    
+    .Tab_Container_Content_Item[Tabs_Transition="NewTab_Upwards"]{
+        animation-name: Tabs_Transition_NewTab_Left;
+    }
+    
+    .Tab_Container_Content_Item[Tabs_Transition="CurrentTab_Downwards"]{
+        animation-name: Tabs_Transition_CurrentTab_Right;
+    }
+    
+    .Tab_Container_Content_Item[Tabs_Transition="NewTab_Downwards"]{
+        animation-name: Tabs_Transition_NewTab_Right;
+    }
+    .Header_SidebarToggle{
+        display: none;
+    }
+    .Header[Style_Margin_SidebarToggle="Enabled"]{
+        margin-left: 0px;
+        width: 100%;
+    }
+    .MainContent[Style_Margin_Header="Enabled"]{
+        margin-top: unset;
+        margin-top: 43px;
+        height: calc(100% - 86px);
+    }    
+    .MainContent[Style_Margin_Ribbon="Enabled"]{
+        margin-top: 33px;
+        height: calc(100% - 76px);
+    }
+    
+    .MainContent[Style_Margin_Header="Enabled"][Style_Margin_Ribbon="Enabled"]{
+        margin-top: 76px;
+        height: calc(100% - 119px);
+    }
+    .Header_PageNavigation_Menu{
+        animation-duration: 0.2s;
+    }
+    @keyframes Overlays_Menu_Open{
+        0% {
+            max-height: 75%;
+            opacity: 0%;
+            transform: translateY(-20px);
+        }
+        100% {
+            max-height: 100%;
+            opacity: 100%;
+            transform: translateY(0px);
+        }
+    }    
+    @keyframes Overlays_Menu_Close{
+        0% {
+            max-height: 100%;
+            opacity: 100%;
+            transform: translateY(0px);
+        }
+        100% {
+            max-height: 0%;
+            opacity: 0%;
+            transform: translateY(-20px);
+        }
+    }
+}

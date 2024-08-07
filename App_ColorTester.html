@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id="Page_Title">
+        App by ElmerF
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="Scripts/Styles/App_Main.css">
+    <link rel="icon" type="image/png" href="Assets/Icons/favicon.png" sizes="96x96" id="Page_Favicon">
+</head>
+<body>
+    <!-- <script src="Scripts/Javascript/App_Main.js"></script> -->
+    <script src="Scripts/Javascript/App_Javascript_Debugging.js" defer></script>
+    <script src="Scripts/Javascript/App_Javascript_ERUMAUI_Core.js" defer></script>
+    <script src="Scripts/Javascript/App_Javascript_ERUMAUI.js" defer></script>
+    <script src="Scripts/Javascript/App_Javascript_Extras.js" defer></script>
+    <script src="Scripts/Javascript/App_Javascript_KeyboardControls.js" defer></script>
+    <script src="Scripts/Javascript/App_Javascript_Initialization.js" defer></script>
+    <div class="LoadingScreen" id="LoadingScreen">
+        <div class="LoadingScreen_Simple" id="LoadingScreen_Simple" Display="none">
+            <div class="LoadingScreen_Simple_Main">
+                <img class='LoadingScreen_Simple_Main_Icon' src='Assets/Icons/favicon.png' id="LoadingScreen_Icon_Simple" draggable='false' loading='lazy'/>
+                <h2 class="LoadingScreen_Simple_Main_Title" id="LoadingScreen_Title_Simple">
+                    App by ElmerF
+                </h2>
+                <p class="LoadingScreen_Simple_Main_Subtitle" id="LoadingScreen_Subtitle_Simple">
+                    Template
+                </p>
+            </div>
+            <div class="LoadingScreen_Simple_Bottom">
+                <div class="General_Loading LoadingScreen_Simple_Bottom_Loader">
+                    <div class="General_Loading_Bar"></div>
+                </div>
+                <div class="LoadingScreen_Simple_Bottom_Copyright">
+                    <img class='LoadingScreen_Simple_Bottom_Copyright_Icon' src='Assets/Icons/favicon.png' draggable='false' loading='lazy' id="LoadingScreen_Copyright_Icon_Simple"/>
+                    <p class="LoadingScreen_Simple_Bottom_Copyright_Title" id="LoadingScreen_Copyright_Title_Simple">
+                        Content By ElmerF 2024
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="LoadingScreen_Splash" id="LoadingScreen_Splash" Display="none">
+            <div class="LoadingScreen_Splash_Window">
+                <div class="LoadingScreen_Splash_Window_Image"></div>
+                <div class="LoadingScreen_Splash_Window_Main">
+                    <img class='LoadingScreen_Splash_Window_Main_Icon' src='Assets/Icons/favicon.png' id="LoadingScreen_Icon_Splash" draggable='false' loading='lazy'/>
+                    <div class="LoadingScreen_Splash_Window_Main_Text">
+                        <h2 class="LoadingScreen_Splash_Window_Main_Title" id="LoadingScreen_Title_Splash">
+                            App by ElmerF
+                        </h2>
+                        <p class="LoadingScreen_Splash_Window_Main_Subtitle" id="LoadingScreen_Subtitle_Splash">
+                            Template
+                        </p>
+                    </div>
+                </div>
+                <div class="General_Loading LoadingScreen_Splash_Window_Loader">
+                    <div class="General_Loading_Bar"></div>
+                </div>
+            </div>
+            <div class="LoadingScreen_Splash_Bottom">
+                <div class="LoadingScreen_Splash_Bottom_Copyright">
+                    <img class='LoadingScreen_Splash_Bottom_Copyright_Icon' src='Assets/Icons/favicon.png' id="LoadingScreen_Copyright_Icon_Splash" draggable='false' loading='lazy'/>
+                    <p class="LoadingScreen_Splash_Bottom_Copyright_Title" id="LoadingScreen_Copyright_Title_Splash">
+                        Content By ElmerF 2024
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="LoadingScreen_Custom" id="LoadingScreen_Custom" Display="none">
+            Custom stuff here
+        </div>
+    </div>
+    <div class="ClockScreen" id="ClockScreen" State="Inactive" onclick="ClockScreen_Toggle()">
+        <div class="ClockScreen_Main">
+            <h1 class="ClockScreen_Main_Time" id="ClockScreen_Main_Time">
+                10:23
+            </h1>
+            <p class="ClockScreen_Main_Date" id="ClockScreen_Main_Date">
+                Wednesday, 02/07/2024
+            </p>
+        </div>
+        <div class="ClockScreen_Extra">
+            <img class='ClockScreen_Extra_Icon' src='Assets/Icons/icon_wifi_offline.png' draggable='false' loading='lazy' id="ClockScreen_Extra_InternetStatus"/>
+            <p class="ClockScreen_Extra_Battery" id="ClockScreen_Extra_Battery">
+                100%
+            </p>
+        </div>
+    </div>
+    <div class="Subwindows" id="Subwindows">
+        <div class="Subwindow" id="SubwindowIDHere">
+            <div class="Subwindow_TitleBar">
+                <h2 class="Subwindow_TitleBar_Title">
+                    Subwindow
+                </h2>
+                <img class='Subwindow_TitleBar_Close' src='Assets/Icons/icon_close.png' draggable='false' loading='lazy' onclick="Subwindows_Close(this.parentNode.parentNode.id)"/>
+            </div>
+            <div class="Subwindow_Content">
+                <h1 class="General_Title">
+                    Content of subwindow here
+                </h1>
+            </div>
+            <div class="Subwindow_Bottom">
+                <div class="Subwindow_Bottom_Button_SecondaryAction">
+                    Secondary action
+                </div>
+                <div class="Subwindow_Bottom_Button_PrimaryAction" onclick="Subwindows_Open('ModalIDHere')">
+                    Primary action
+                </div>
+            </div>
+        </div>
+        <div class="Modal" id="ModalIDHere">
+			<div class="Modal_TitleBar">
+				<h2 class="Modal_TitleBar_Title">
+					Modal / Confirmation
+				</h2>
+			</div>
+			<div class="Modal_Content">
+				<p class="General_Paragraph">
+					In this format, the box closes if either the Esc button is pressed, or the user clicks any of the
+					button in the bottom section of the window.
+				</p>
+			</div>
+			<div class="Modal_Content_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction">
+					Secondary action
+				</div>
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick="Subwindows_Close('ModalIDHere')">
+					Primary action
+				</div>
+			</div>
+		</div>
+    </div>
+    <div class="Toasts" Position="Right" id="Toasts">
+        <!-- <div class="Toast">
+            <img class='Toast_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+            <h2 class="Toast_Title">
+                Hello!
+            </h2>
+            <p class="Toast_Content">
+                This is a normal toast notification.
+            </p>
+        </div> -->
+    </div>
+    <div class="Overlays" id="Overlays">
+        <div class="Debugger_Console" id="Debugger_Console" style="display: none">
+			<div class="Debugger_Console_Results" id="Debugger_Console_Text"></div>
+			<div class="Debugger_Console_CommandEntry">
+				<input class="Debugger_Console_CommandEntry_Input" id="Debugger_Console_CommandEntry_Input"
+					placeholder="Enter console command and press Enter"></input>
+			</div>
+		</div>
+        <div class="Header_PageNavigation_Menu" id="Header_PageNavigation_Menu" style="display: none">
+            <div class="Header_PageNavigation_Menu_Navigation Header_PageNavigation_Menu_Content">
+                <h1 class="Header_PageNavigation_Menu_Title" id="Header_PageNavigation_Menu_Title">
+                    ERUMA UI 1.0
+                </h1>
+                <div class="Header_PageNavigation_Menu_Buttons" id="Header_PageNavigation_Menu_Links">
+                    <!-- <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Home
+                        </p>
+                    </div>
+                    <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Home
+                        </p>
+                    </div> -->
+                </div>
+            </div>
+            <div class="Header_PageNavigation_Menu_Actions Header_PageNavigation_Menu_Content">
+                <h1 class="Header_PageNavigation_Menu_Title">
+                    Page Actions
+                </h1>
+                <div class="Header_PageNavigation_Menu_Buttons">
+                    <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Home
+                        </p>
+                    </div>
+                    <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Home
+                        </p>
+                    </div>
+                    <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Home
+                        </p>
+                    </div>
+                    <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Home
+                        </p>
+                    </div>
+                    <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Home
+                        </p>
+                    </div>
+                    <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Home
+                        </p>
+                    </div>
+                    <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Home
+                        </p>
+                    </div>
+                    <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Home
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Header_StatusTray_Menu" id="Header_StatusTray_Menu" style="display: none">
+            <img class='Header_StatusTray_Menu_Close' src='Assets/Icons/icon_close.png' draggable='false' loading='lazy' onclick="Header_Toggle_StatusTray()"/>
+            <div class="Header_StatusTray_Menu_Clock Header_StatusTray_Menu_Content">
+                <h1 class="Header_StatusTray_Menu_Clock_Clock" id="Header_StatusTray_Menu_Clock_Clock">
+                    10:17 PM
+                </h1>
+                <p class="Header_StatusTray_Menu_Clock_Date" id="Header_StatusTray_Menu_Clock_Date">
+                    Sunday, 02/04/2024
+                </p>
+            </div>
+            <div class="Header_StatusTray_Menu_Battery Header_StatusTray_Menu_Content">
+                <h1 class="Header_StatusTray_Menu_Battery_Percentage" id="Header_StatusTray_Menu_Battery_Percentage">
+                    100%
+                </h1>
+                <p class="Header_StatusTray_Menu_Battery_Status" id="Header_StatusTray_Menu_Battery_Status">
+                    Fully charged
+                </p>
+            </div>
+            <div class="Header_StatusTray_Menu_InternetStatus Header_StatusTray_Menu_Content">
+                <h1 class="Header_StatusTray_Menu_InternetStatus_Status" id="Header_StatusTray_Menu_InternetStatus_Status">
+                    Connected
+                </h1>
+                <p class="Header_StatusTray_Menu_InternetStatus_Description" id="Header_StatusTray_Menu_InternetStatus_Description">
+                    You are connected to the internet. Features that require an internet connection will function properly.
+                </p>
+                <a href="https://fast.com" target="_blank">
+                    <div class="Header_PageNavigation_Menu_Button_Item">
+                        <img class='Header_PageNavigation_Menu_Button_Item_Icon' src='Assets/Icons/placeholder.png' draggable='false' loading='lazy'/>
+                        <p class="Header_PageNavigation_Menu_Button_Item_Text">
+                            Speedtest
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    <div class="Header_SidebarToggle" id="Header_SidebarToggle" onclick="Sidebar_Toggle()">
+        <img class='Header_SidebarToggle_Icon' src='Assets/Icons/icon_hamburgermenu.png' draggable='false' loading='lazy' id="Header_SidebarToggle_Icon"/>
+    </div>
+    <header class="Header" id="Header" Style_Margin_SidebarToggle="Enabled" Style_Margin_Sidebar="Enabled">
+		<div class="Header_PageNavigation" id="Header_PageNavigation" onclick="Header_Toggle_PageNavigation()">
+			<img src="Assets/Icons/favicon.png" class="Header_PageNavigation_Icon" id="Header_PageNavigation_Icon"></img>
+			<h2 class="Header_PageNavigation_Title" id="Header_PageNavigation_Title">
+				Home
+			</h2>
+		</div>
+		<div class="Header_Content" id="pageElement_Header_Actions">
+            <h3 class="Header_Content_Title" id="pageElement_Header_Title">
+                Tab name
+            </h3>
+		</div>
+		<div class="Header_StatusTray" id="Header_StatusTray" onclick="Header_Toggle_StatusTray()">
+			<div class="Header_StatusTray_Clock" id="Header_StatusTray_Clock">
+				<h1 class="Header_StatusTray_Clock_Time" id="Header_StatusTray_Clock_Time">
+					6:05 PM
+                </h1>
+			</div>
+			<div class="Header_StatusTray_Battery" id="Header_StatusTray_Battery">
+				<h1 class="Header_StatusTray_Battery_Percentage" id="Header_StatusTray_Battery_Percentage">
+					57%
+                </h1>
+			</div>
+			<div class="Header_StatusTray_Extras" id="Header_StatusTray_Extras">
+                <img class='Header_StatusTray_Extras_Icon' src='Assets/Icons/icon_wifi_offline.png' draggable='false' loading='lazy' id="Header_StatusTray_Extras_InternetStatus"/>
+			</div>
+		</div>
+    </header>
+    <header class="Ribbon" id="Ribbon" Style_Margin_Sidebar="Enabled" Style_Margin_Header="Enabled">
+        <div class="Ribbon_Section" id="Ribbon_TabIDHere">
+			<div class="Ribbon_Section_Item">
+				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/placeholder.png" />
+				<p class="Ribbon_Section_Item_Text">
+					Button
+				</p>
+			</div>
+			<div class="Ribbon_Section_Item">
+				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/placeholder.png" />
+				<p class="Ribbon_Section_Item_Text">
+					Button
+				</p>
+			</div>
+            <div class="Ribbon_Section_Item">
+				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/placeholder.png" />
+				<p class="Ribbon_Section_Item_Text">
+					Button
+				</p>
+			</div>
+		</div>
+        <div class="Ribbon_Section" id="Ribbon_TabIDHere2">
+			<div class="Ribbon_Section_Item">
+				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/placeholder.png" />
+				<p class="Ribbon_Section_Item_Text">
+					Button 2
+				</p>
+			</div>
+			<div class="Ribbon_Section_Item">
+				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/placeholder.png" />
+				<p class="Ribbon_Section_Item_Text">
+					Button 2
+				</p>
+			</div>
+            <div class="Ribbon_Section_Item">
+				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/placeholder.png" />
+				<p class="Ribbon_Section_Item_Text">
+					Button 2
+				</p>
+			</div>
+		</div>
+    </header>
+    <div class="Tabs_Vertical_Container_Selector Sidebar" id="Sidebar" State="Collapsed" Style_Margin_Header="Enabled">
+        <div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_TabIDHere" Tabs_UseRibbon="true" Tabs_Tab_Target_Ribbon="Ribbon_TabIDHere" Tabs_UseHeaderTitle="true" State="Selected">
+			<div class="Tabs_Vertical_Container_Selector_Item_Icon">
+				<h2 class="Tabs_Vertical_Container_Selector_Item_Icon_Icon">
+					1
+				</h2>
+			</div>
+			<p class="Tabs_Vertical_Container_Selector_Item_Text">
+				Tab 1
+			</p>
+		</div>
+    </div>
+    <div class="MainContent_Container" id="MainContent_Container">
+        <div class="MainContent_Container_Pusher" id="MainContent_Container_Pusher"></div>
+        <main class="MainContent" id="MainContent" Style_Margin_Header="Enabled" Style_Margin_Ribbon="Enabled" Style_Margin_Sidebar="Enabled">
+            <div class="Content" id="Content" Style_Margin="Enabled" Tabs_CurrentTab="">
+                <div class="Tab_Container_Content_Item Content_Item" id="tab_TabIDHere">
+                    <h1 class="General_Title">
+                        Color Tester
+                    </h1>
+                    <div class="ColorTester_ColorSets">
+                        <div class="ColorTester_ColorSets_Set">
+                            <div class="ColorTester_ColorSets_Set_Item">
+                                D3
+                            </div>
+                            <div class="ColorTester_ColorSets_Set_Item">
+                                D2
+                            </div>
+                            <div class="ColorTester_ColorSets_Set_Item">
+                                D1
+                            </div>
+                            <div class="ColorTester_ColorSets_Set_Item">
+                                Main
+                            </div>
+                            <div class="ColorTester_ColorSets_Set_Item">
+                                L1
+                            </div>
+                            <div class="ColorTester_ColorSets_Set_Item">
+                                L2
+                            </div>
+                            <div class="ColorTester_ColorSets_Set_Item">
+                                L3
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ColorTester_States">
+                        <div class="ColorTester_States_Item">
+                            Normal
+                        </div>
+                        <div class="ColorTester_States_Item">
+                            Hover
+                        </div>
+                        <div class="ColorTester_States_Item">
+                            Focus
+                        </div>
+                        <div class="ColorTester_States_Item">
+                            Active
+                        </div>
+                        <div class="ColorTester_States_Item">
+                            Disabled
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+</body>
+</html>

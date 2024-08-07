@@ -1,0 +1,394 @@
+/*
+    Contains CSS variable values used throughout the app
+*/
+
+@font-face {
+	font-family: "Raleway";
+	src: url('../../Assets/Fonts/Raleway-VariableFont_wght.ttf') format("truetype");
+	font-weight: 100 900;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url('../../Assets/Fonts/Roboto-Regular.ttf') format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Alexandria";
+	src: url("../../Assets/Fonts/Alexandria-VariableFont_wght.ttf") format("truetype");
+	font-weight: normal;
+}
+
+:root{
+    --Debug-ElementOutline: none;
+	--BG-Img-Wallpaper-Main: url(../../Assets/Background/Wallpaper_Main.jpg);
+	--BG-Img-Wallpaper-Clock: url(../../Assets/Background/Clock_Screen.png);
+    --BG-Img-Wallpaper-Loading: url(../../Assets/Background/Splash.png);
+	--BG-Img-Splash: url(../../Assets/Background/Splash.png);
+
+	--Sidebar-Width-Expanded: 300px;
+	--Sidebar-Width-Collapsed: 50px;
+	
+	--Element-Transition-Delay: 0.4s;
+	--Element-Animation-Duration: 0.5s;
+	--Element-BoxShadow: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgba( 0, 0, 0, 0.50); 
+	--Element-BoxShadow-Hover: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgba( 0, 0, 0, 0.50); 
+	/* --Element-BoxShadow-Hover: 0cm 0cm 0.28218705792108cm 0.03527338224013cm  var(--Accent-Color-Hover);  */
+	--Element-Icon-Brightness: brightness(1);
+	--Element-BackdropBlur: blur(10px);
+	--Element-ContentContainer-MarginnedWidth: 70%;
+	--Element-ContentContainer-Padding-Left: 15%;
+	--Element-ContentContainer-Padding-Right: 15%;
+
+	--BG-Color-Opacitated: rgba(28, 28, 28, 0.50);
+
+	--Text-Font-Primary: Alexandria, "Trebuchet MS", "Arial";
+	--Text-Font-Secondary: Roboto, "Arial", "Helvetica";
+	--Text-Font-Numbers: Alexandria, "Arial", "Helvetica";
+	--Text-Color: white;
+	
+	--Accent-Color: #8974fb;
+	--Accent-Color-Hover: #9886ff;
+	--Accent-Color-Focus: #664bff;
+
+	--BG-Color-Scrollbar: transparent;
+	--BG-Color-Scrollbar-Thumb: var(--Accent-Color);
+	--BG-Color-Scrollbar-Thumb-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Selection: var(--Accent-Color);
+
+	--BG-Color-General: #171010;
+	--BG-Color-General-Menus: #202020;
+
+	--BG-Color-MainView: #1d1d1f;
+
+	--BG-Color-LoadingScreen: #15151e;
+	--BG-Color-LoadingScreen-Splash-NameSpace: #303030;
+	--BG-Color-LoadingScreen-Splash-Loader: #1f1e1e;
+	
+	--BG-Color-Hover: #2d2d2d;
+	--BG-Color-Focus: #2f2f2f;
+
+	--BG-Color-Overlay-Header: #161616;
+	--BG-Color-Overlay-Sidebar: #161616;
+	--BG-Color-Overlay-Ribbon: #161616;
+	--BG-Color-Overlay-CornerButtons: var(--Accent-Color);
+	--BG-Color-Overlay-CornerButtons-Hover: var(--Accent-Color-Hover);
+
+	/* Primary buttons */
+	--BG-Color-Button-Primary: var(--Accent-Color);
+	--BG-Color-Button-Primary-Text: #222222;
+	--BG-Color-Button-Primary-Border-Primary: #9683fc;
+	--BG-Color-Button-Primary-Border-Secondary: #664bff;
+
+	--BG-Color-Button-Primary-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Button-Primary-Text-Hover: #222222;
+	--BG-Color-Button-Primary-Border-Primary-Hover: #775fff;
+	--BG-Color-Button-Primary-Border-Secondary-Hover: #664bff;
+
+	--BG-Color-Button-Primary-Focus: var(--Accent-Color-Focus);
+	--BG-Color-Button-Primary-Text-Focus: #222222;
+	--BG-Color-Button-Primary-Border-Primary-Focus: #6a50ff;
+	--BG-Color-Button-Primary-Border-Secondary-Focus: #5739ff;
+
+	/* Secondary */
+	--BG-Color-Button-Secondary: #1b1a1a;
+	--BG-Color-Button-Secondary-Text: #ffffff;
+	--BG-Color-Button-Secondary-Border-Primary: #242424;
+	--BG-Color-Button-Secondary-Border-Secondary: #242424;
+
+	--BG-Color-Button-Secondary-Hover: var(--BG-Color-Hover);
+	--BG-Color-Button-Secondary-Text-Hover: #ffffff;
+	--BG-Color-Button-Secondary-Border-Primary-Hover: #3c3a3a;
+	--BG-Color-Button-Secondary-Border-Secondary-Hover: #343232;
+
+	--BG-Color-Button-Secondary-Focus: #242424;
+	--BG-Color-Button-Secondary-Text-Focus: #ffffff;
+	--BG-Color-Button-Secondary-Border-Primary-Focus: #2f2f2f;
+	--BG-Color-Button-Secondary-Border-Secondary-Focus: #2f2f2f;
+
+	--BG-Color-Button-General: var(--BG-Color-Button-Secondary);
+	--BG-Color-Button-General-Text: white;
+	--BG-Color-Button-General-Hover: var(--BG-Color-Hover);
+	--BG-Color-Button-General-Focus: var(--BG-Color-Focus);
+	--BG-Color-Button-General-Accent: #242424;
+	--BG-Color-Button-General-Accent-Hover: #3c3a3a;
+	--BG-Color-Button-General-Accent-Focus: var(--Color-Borders-Focus);
+	--BG-Color-Button-ToggleIndicator-Activated: var(--Accent-Color); 
+	--BG-Color-Button-ToggleIndicator-Deactivated: var(--BG-Color-Button-General); 
+	--BG-Color-Button-Dropdown: var(--BG-Color-Button-General); 
+	--BG-Color-Button-Dropdown-Hover: var(--BG-Color-Button-General-Hover);
+	--BG-Color-Button-Dropdown-Active: rgb(54, 54, 54);
+	--BG-Color-Button-Dropdown-Accent: var(--Accent-Color);
+	--BG-Color-Button-Dropdown-Accent-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Button-Dropdown-Accent-Active: var(--Accent-Color-Focus);
+	--BG-Color-Button-Dropdown-List: var(--BG-Color-Button-General);
+	--BG-Color-Button-Dropdown-List-Item-Hover: #282830;
+	--BG-Color-Subwindows: #1a1a1a;
+	--BG-Color-Input: var(--BG-Color-Button-General);
+	--BG-Color-Input-Hover: var(--BG-Color-Button-General-Hover);
+	--BG-Color-Input-Focus: var(--BG-Color-Button-General-Focus);
+	--BG-Color-Input-Accent: var(--Accent-Color);
+	--BG-Color-Input-Accent-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Input-Accent-Focus: var(--Accent-Color-Active);
+	--Color-Dividers: #303030;
+	--Color-Borders: var(--Color-Dividers);
+	--Color-Borders-Hover: var(--Accent-Color-Hover);
+	--Color-Borders-Focus: var(--Accent-Color-Focus);
+}
+
+:root-lightMode{
+    --Debug-ElementOutline: none;
+	--BG-Img-Wallpaper-Main: url(../../Assets/Background/BG_SplashScreen.jpg);
+	--BG-Img-Wallpaper-Clock: url(../../Assets/Background/Telephone.png);
+    --BG-Img-Wallpaper-Loading: url(../../Assets/Background/BG_SplashScreen.jpg);
+	--BG-Img-Splash: url(../../Assets/Background/BG_SplashScreen.jpg);
+
+	--Sidebar-Width-Expanded: 300px;
+	--Sidebar-Width-Collapsed: 50px;
+	
+	--Element-Transition-Delay: 0.4s;
+	--Element-Animation-Duration: 0.5s;
+	--Element-BoxShadow: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgba( 0, 0, 0, 0.25); 
+	--Element-BoxShadow-Hover: 0cm 0cm 0.28218705792108cm 0.03527338224013cm  var(--Accent-Color-Hover); 
+	--Element-Icon-Brightness: brightness(0.25);
+	--Element-BackdropBlur: blur(10px);
+	--Element-ContentContainer-MarginnedWidth: 70%;
+
+	--BG-Color-Opacitated: rgba(28, 28, 28, 0.50);
+
+	--Text-Font-Primary: Alexandria, "Trebuchet MS", "Arial";
+	--Text-Font-Secondary: Roboto, "Arial", "Helvetica";
+	--Text-Font-Numbers: Alexandria, "Arial", "Helvetica";
+	--Text-Color: rgb(31, 31, 31);
+	
+	--Accent-Color: #7b60f0;
+	--Accent-Color-Hover: #5835f3;
+	--Accent-Color-Focus: #4a27e7;
+
+	--BG-Color-Scrollbar: transparent;
+	--BG-Color-Scrollbar-Thumb: var(--Accent-Color);
+	--BG-Color-Scrollbar-Thumb-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Selection: var(--Accent-Color);
+
+	--BG-Color-General: #ffffff;
+	--BG-Color-General-Menus: #ffffff;
+	--BG-Color-LoadingScreen: #ffffff;
+	--BG-Color-LoadingScreen-Splash-NameSpace: #eaeaea;
+	--BG-Color-LoadingScreen-Splash-Loader: #d9d9d9;
+	--BG-Color-Hover: #dedede;
+	--BG-Color-Focus: #c7c7c7;
+	--BG-Color-Overlay-Header: #ffffff;
+	--BG-Color-Overlay-Sidebar: var(--BG-Color-General-Menus);
+	--BG-Color-Overlay-Ribbon: #ffffff;
+	--BG-Color-Overlay-CornerButtons: var(--Accent-Color);
+	--BG-Color-Overlay-CornerButtons-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Button-General: #ffffff;
+	--BG-Color-Button-General-Hover: var(--BG-Color-Hover);
+	--BG-Color-Button-General-Focus: var(--BG-Color-Focus);
+	--BG-Color-Button-General-Accent: #d5d5d59b;
+	--BG-Color-Button-General-Accent-Hover: #b5b5b59b;
+	--BG-Color-Button-General-Accent-Focus: #9c9c9c9b;
+	--BG-Color-Button-ToggleIndicator-Activated: var(--Accent-Color); 
+	--BG-Color-Button-ToggleIndicator-Deactivated: var(--BG-Color-Button-General); 
+	--BG-Color-Button-Dropdown: var(--BG-Color-Button-General); 
+	--BG-Color-Button-Dropdown-Hover: var(--BG-Color-Button-General-Hover);
+	--BG-Color-Button-Dropdown-Active: rgb(54, 54, 54);
+	--BG-Color-Button-Dropdown-Accent: var(--Accent-Color);
+	--BG-Color-Button-Dropdown-Accent-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Button-Dropdown-Accent-Active: var(--Accent-Color-Focus);
+	--BG-Color-Button-Dropdown-List: var(--BG-Color-Button-General);
+	--BG-Color-Button-Dropdown-List-Item-Hover: #282830;
+	--BG-Color-Subwindows: #1a1a1a;
+	--BG-Color-Input: var(--BG-Color-Button-General);
+	--BG-Color-Input-Hover: var(--BG-Color-Button-General-Hover);
+	--BG-Color-Input-Focus: var(--BG-Color-Button-General-Focus);
+	--BG-Color-Input-Accent: var(--Accent-Color);
+	--BG-Color-Input-Accent-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Input-Accent-Focus: var(--Accent-Color-Active);
+	--Color-Dividers: #dfdfdf93;
+	--Color-Borders: var(--Color-Dividers);
+	--Color-Borders-Hover: var(--Accent-Color-Hover);
+	--Color-Borders-Focus: var(--Accent-Color-Focus);
+}
+
+:new-ui{
+	--Debug-ElementOutline: none;
+	--BG-Img-Wallpaper-Main: url(../../Assets/Background/BG_SplashScreen.jpg);
+	--BG-Img-Wallpaper-Clock: url(../../Assets/Background/Telephone.png);
+    --BG-Img-Wallpaper-Loading: url(../../Assets/Background/BG_SplashScreen.jpg);
+	--BG-Img-Splash: url(../../Assets/Background/BG_SplashScreen.jpg);
+
+	/* Sidebar widths */
+	--Sidebar-Width-Expanded: 300px;
+	--Sidebar-Width-Collapsed: 50px;
+
+	/* Elements */
+	--Element-Transition-Delay: 0.4s;
+	--Element-Animation-Duration: 0.5s;
+	--Element-BoxShadow: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgba( 0, 0, 0, 0.50); 
+	--Element-BoxShadow-Hover: 0cm 0cm 0.28218705792108cm 0.03527338224013cm  var(--Accent-Color-Hover); 
+	--Element-Icon-Brightness: brightness(1);
+	--Element-BackdropBlur: blur(10px);
+	--Element-ContentContainer-MarginnedWidth: 70%;
+	--Element-Selection: var(--Generic-Accent-Color);
+
+	/* Set: Text font */
+	--Generic-Text-Font-Set-1: Alexandria, "Trebuchet MS", "Arial";
+	--Generic-Text-Font-Set-2: Roboto, "Arial", "Helvetica";
+	--Generic-Text-Font-Set-3: Raleway, "Arial", "Helvetica";
+
+	--Generic-Text-Font-Primary: var(--Generic-Text-Font-Set-1);
+	--Generic-Text-Font-Secondary: var(--Generic-Text-Font-Set-2);
+	--Generic-Text-Font-Numbers: var(--Generic-Text-Font-Set-1);
+	--Generic-Text-Font-Color: white;
+	
+	/* Set: Primary color */
+	--Generic-Color-Primary-Set-Main: #4a27e7;
+	--Generic-Color-Primary-Set-Darker-1: darken(var(--Generic-Color-Primary-Set-Main), 10%);
+	--Generic-Color-Primary-Set-Darker-2: darken(var(--Generic-Color-Primary-Set-Main), 20%);
+	--Generic-Color-Primary-Set-Darker-3: darken(var(--Generic-Color-Primary-Set-Main), 30%);
+	--Generic-Color-Primary-Set-Lighter-1: lighten(var(--Generic-Color-Primary-Set-Main), 10%);
+	--Generic-Color-Primary-Set-Lighter-2: lighten(var(--Generic-Color-Primary-Set-Main), 20%);
+	--Generic-Color-Primary-Set-Lighter-3: lighten(var(--Generic-Color-Primary-Set-Main), 30%);
+	--Generic-Color-Primary-Set-Opacitated: rgba(74, 39, 231, 0.50);
+
+	/* Set: Secondary color */
+	--Generic-Color-Secondary-Set-Main: #171010; 
+	--Generic-Color-Secondary-Set-Darker-1: darken(var(--Generic-Color-Secondary-Set-Main), 10%);
+	--Generic-Color-Secondary-Set-Darker-2: darken(var(--Generic-Color-Secondary-Set-Main), 20%);
+	--Generic-Color-Secondary-Set-Darker-3: darken(var(--Generic-Color-Secondary-Set-Main), 30%);
+	--Generic-Color-Secondary-Set-Lighter-1: lighten(var(--Generic-Color-Secondary-Set-Main), 10%);
+	--Generic-Color-Secondary-Set-Lighter-2: lighten(var(--Generic-Color-Secondary-Set-Main), 20%);
+	--Generic-Color-Secondary-Set-Lighter-3: lighten(var(--Generic-Color-Secondary-Set-Main), 30%);
+	--Generic-Color-Secondary-Set-Opacitated: rgba(28, 28, 28, 0.50);
+
+	/* Accent colors */
+	--Generic-Accent-Color: var(--Generic-Color-Primary-Set-Primary-Set-Main);
+	--Generic-Accent-Color-Hover: var(--Generic-Color-Primary-Set-Lighter-1);
+	--Generic-Accent-Color-Focus: var(--Generic-Color-Primary-Set-Lighter-2);
+	--Generic-Accent-Color-Active: var(--Generic-Color-Primary-Set-Darker-1);
+	--Generic-Accent-Color-Disabled: var(--Generic-Color-Primary-Set-Darker-2);
+
+	/* Scrollbar */
+	--Scrollbar-Color: transparent;
+	--Scrollbar-Thumb: var(--Generic-Accent-Color);
+	--Scrollbar-Thumb-Hover: var(--Generic-Accent-Color-Hover);
+
+	/* Generic colors */
+	--Generic-BG-Color-General: var(--Generic-Color-Secondary-Set-Darker-3);
+	--Generic-BG-Color-Menus: var(--Generic-Color-Secondary-Set-Darker-2);
+	--Generic-BG-Color-Hover: var(--Generic-Color-Secondary-Set-Darker-1);
+
+	/* Borders */
+	--Generic-Borders-Color-Primary: var(--Generic-Accent-Color);
+	--Generic-Borders-Color-Primary-Hover: var(--Generic-Accent-Color-Hover);
+	--Generic-Borders-Color-Primary-Focus: var(--Generic-Accent-Color-Focus);
+	--Generic-Borders-Color-Primary-Active: var(--Generic-Accent-Color-Active);
+	--Generic-Borders-Color-Primary-Disabled: var(--Generic-Accent-Color-Disabled);
+	--Generic-Borders-Color-Secondary: var(--Generic-Color-Secondary-Set-Lighter-1);
+	--Generic-Borders-Color-Secondary-Hover: var(--Generic-Color-Secondary-Set-Lighter-2);
+	--Generic-Borders-Color-Secondary-Focus: var(--Generic-Color-Secondary-Set-Darker-1);
+	--Generic-Borders-Color-Secondary-Active: var(--Generic-Color-Secondary-Set-Darker-2);
+	--Generic-Borders-Color-Secondary-Disabled: var(--Generic-Color-Secondary-Set-Darker-3);
+
+	/* Loading screen */
+	--LoadingScreen-Color-BG: var(--Generic-BG-Color-General);
+	--LoadingScreen-Color-Window: var(--Generic-Color-Secondary-Set-Darker-2);
+	--LoadingScreen-Font-Title: var(--Generic-Text-Font-Primary);
+	--LoadingScreen-Font-Subtitle: var(--Generic-Text-Font-Secondary);
+	--LoadingScreen-Font-Copyright: var(--Generic-Text-Font-Primary);
+	--LoadingScreen-Font-Color: var(--Generic-Text-Font-Color);
+	--LoadingScreen-Color-Loader: var(--Generic-Accent-Color);
+
+	/* Clock screen */
+	--ClockScreen-Font-Time: var(--Generic-Text-Font-Primary);
+	--ClockScreen-Font-Date: var(--Generic-Text-Font-Secondary);
+	--ClockScreen-Font-Battery: var(--Generic-Text-Font-Primary);
+	--ClockScreen-Font-Color: var(--Generic-Text-Font-Color);
+
+	/* Subwindows */
+	--Subwindows-Container-Color-BG: var(--Generic-Color-Secondary-Set-Opacitated);
+	--Subwindows-TitleBar-Font-Title: var(--Generic-Text-Font-Primary);
+	--Subwindow-Color-BG: var(--Generic-Color-Secondary-Set-Darker-1);
+	--Subwindow-Color-Borders: var(--Generic-Borders-Color-Secondary);
+	--Subwindow-TitleBar-Font-Color: var(--Generic-Text-Font-Color);
+	
+	/* Toasts */
+	--Toast-Color-BG: var(--Generic-Color-Secondary-Set-Main);
+	--Toast-Color-Borders: var(--Generic-Borders-Color-Secondary);
+	--Toast-Font-Title: var(--Generic-Text-Font-Primary);
+	--Toast-Font-Subtitle: var(--Generic-Text-Font-Secondary);
+	--Toast-Font-Color: var(--Generic-Text-Font-Color);
+
+	/* Header */
+	--Header-Color-BG: var(--Generic-BG-Color-Menus);
+	--Header-Color-Borders: var(--Generic-Borders-Color-Secondary);
+	--Header-Font-Title: var(--Generic-Text-Font-Primary);
+	--Header-Font-Secondary: var(--Generic-Text-Font-Secondary);
+	--Header-Font-StatusTray: var(--Generic-Text-Font-Numbers);
+	--Header-Font-Color: var(--Generic-Text-Font-Color);
+	--Header-Menu-Color-BG: var(--Generic-Color-Secondary-Set-Opacitated);
+	--Header-Menu-Color-Borders: var(--Generic-Borders-Color-Secondary);
+	--Header-Menu-Font-Title: var(--Generic-Text-Font-Primary);
+	--Header-Menu-Font-Secondary: var(--Generic-Text-Font-Secondary);
+
+	/* Ribbon */
+	--Ribbon-Color-BG: var(--Generic-BG-Color-Menus);
+	--Ribbon-Color-Borders: var(--Generic-Borders-Color-Secondary);
+	--Ribbon-Font-Item: var(--Generic-Text-Font-Secondary);
+	--Ribbon-Font-Color: var(--Generic-Text-Font-Color);
+
+	/* Accordion */
+	--Accordion-Font-Title: var(--Generic-Text-Font-Primary);
+	--Accordion-Font-Color: var(--Generic-Text-Font-Color);
+
+	/* Button */
+	--Button-Color-BG: var(--Generic-Color-Secondary-Set-Lighter-1);
+	--Button-Color-BG-Hover: var(--Generic-Color-Secondary-Set-Lighter-2);
+	--Button-Color-BG-Focus: var(--Generic-Color-Primary-Set-Darker-1);
+	--Button-Color-BG-Active: var(--Generic-Color-Primary-Set-Darker-2);
+	--Button-Color-BG-Disabled: var(--Generic-Color-Primary-Set-Darker-3);
+	--Button-Color-Borders: var(--Generic-Borders-Color-Secondary);
+	--Button-Color-Borders-Hover: var(--Generic-Borders-Color-Secondary-Hover);
+	--Button-Color-Borders-Focus: var(--Generic-Borders-Color-Primary-Focus);
+	--Button-Color-Borders-Active: var(--Generic-Borders-Color-Primary-Active);
+	--Button-Color-Borders-Disabled: var(--Generic-Borders-Color-Primary-Disabled);
+	--Button-Font-Text: var(--Generic-Text-Font-Secondary);
+	--Button-Font-Color: var(--Generic-Text-Font-Color);
+	--Button-Font-Color-Hover: var(--Generic-Text-Font-Color);
+	--Button-Font-Color-Focus: var(--Generic-Text-Font-Color);
+	--Button-Font-Color-Active: var(--Generic-Text-Font-Color);
+	--Button-Font-Color-Disabled: var(--Generic-Text-Font-Color);
+	--Button-Color-Shadow: unset;
+	--Button-Color-Shadow-Hover: var(--Element-BoxShadow);
+	--Button-Color-Shadow-Focus: var(--Element-BoxShadow-Hover);
+	--Button-Color-Shadow-Active: var(--Element-BoxShadow-Hover);
+	--Button-Color-Shadow-Disabled: var(--Element-BoxShadow);
+
+	/* Dropdowns */
+	--Dropdown-Button-Font-Title: var(--Button-Font-Text);
+	--Dropdown-Button-Font-Color: var(--Button-Font-Color);
+	--Dropdown-Button-Font-Color-Hover: var(--Button-Font-Color);
+	--Dropdown-Button-Color-BG: var(--Button-Color-BG);
+	--Dropdown-Button-Color-BG-Hover: var(--Button-Color-BG-Hover);
+	--Dropdown-Button-Color-Active-BG: var(--Generic-Color-Primary-Set-Darker-1);
+	--Dropdown-Button-Color-Active-BG-Hover: var(--Generic-Color-Primary-Set-Main);
+	--Dropdown-Button-Color-Borders: var(--Generic-Borders-Color-Secondary);
+	--Dropdown-Button-Color-Borders-Hover: var(--Generic-Borders-Color-Secondary-Hover);
+	--Dropdown-Button-Color-Active-Borders: var(--Generic-Borders-Color-Primary);
+	--Dropdown-Button-Color-Active-Borders-Hover: var(--Generic-Borders-Color-Primary-Hover);
+	--Dropdown-Button-Shadow-Hover: var(--Element-BoxShadow);
+	--Dropdown-Button-Shadow-Active-Hover: var(--Element-BoxShadow-Hover);
+	--Dropdown-List-Color-BG: var(--Dropdown-Button-Color-BG);
+	--Dropdown-List-Color-Borders-BG: var(--Dropdown-Button-Color-Active-Borders);
+	--Dropdown-List-Item-Font-Text: var(--Button-Font-Text);
+	--Dropdown-List-Item-Font-Color: var(--Button-Font-Color);
+	--Dropdown-List-Item-Color-BG: unset;
+	--Dropdown-List-Item-Color-BG-Hover: var(--Button-Color-BG-Hover);
+	--Dropdown-List-Item-Color-BG-Active: var(--Button-Color-BG-Active);
+	--Dropdown-List-Item-Color-Borders: unset;
+	--Dropdown-List-Item-Color-Borders-Hover: var(--Button-Color-Borders-Hover);
+	--Dropdown-List-Item-Color-Borders-Active: var(--Button-Color-Borders-Active);
+}

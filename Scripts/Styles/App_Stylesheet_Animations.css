@@ -1,0 +1,304 @@
+@keyframes General_Loading_Bar{
+    0% {
+        width: 0%; 
+        transform: translateX(0%);
+    }
+	50% {
+        width: 100%; 
+        transform: translateX(0%);
+    }
+	100% {
+        width: 100%; 
+        transform: translateX(100%);
+    }
+}
+
+@keyframes Overlays_Menu_Open{
+    0% {
+        max-height: 0%;
+        opacity: 0%;
+        transform: translateY(-20px);
+		overflow-y: hidden;
+    }
+    100% {
+        max-height: 100%;
+        opacity: 100%;
+        transform: translateY(0px);
+		overflow-y: hidden;
+    }
+}
+
+@keyframes Overlays_Menu_Content_Open{
+    0% {
+        opacity: 0%;
+        transform: translateY(50px);
+		/* max-height: 0%; */
+    }
+	25% {
+		opacity: 100%;
+        /* transform: translateY(-75px); */
+	}
+    100% {
+        opacity: 100%;
+        transform: translateY(0px);
+		/* max-height: 100%; */
+    }
+}
+
+@keyframes Overlays_Menu_Close{
+    0% {
+        max-height: 100%;
+        opacity: 100%;
+        transform: translateY(0px);
+		overflow-y: hidden;
+    }
+    100% {
+        max-height: 0%;
+        opacity: 0%;
+        transform: translateY(-20px);
+		overflow-y: hidden;
+    }
+}
+
+@keyframes Overlays_Menu_Content_Close{
+    0% {
+        opacity: 100%;
+        transform: translateY(0px);
+    }
+	25% {
+		opacity: 0%;
+	}
+    100% {
+        opacity: 0%;
+        transform: translateY(50px);
+    }
+}
+
+@keyframes Tabs_Transition_CurrentTab_Upwards{
+	from {
+		transform: translateY(0px);
+		opacity: 100%;
+	}
+	to {
+		transform: translateY(75px);
+		opacity: 0%;
+	}
+}
+
+@keyframes Tabs_Transition_NewTab_Upwards{
+	from {
+		transform: translateY(-75px);
+		opacity: 0%;
+	}
+	to {
+		transform: translateY(0px);
+		opacity: 100%;
+	}
+}
+
+@keyframes Tabs_Transition_CurrentTab_Downwards{
+	from {
+		transform: translateY(0px);
+		opacity: 100%;
+	}
+	to {
+		transform: translateY(-75px);
+		opacity: 0%;
+	}
+}
+
+@keyframes Tabs_Transition_NewTab_Downwards{
+	from {
+		transform: translateY(75px);
+		opacity: 0%;
+	}
+	to {
+		transform: translateY(0px);
+		opacity: 100%;
+	}
+}
+
+@keyframes Tabs_Transition_CurrentTab_Left{
+	from {
+		transform: translateX(0px);
+		opacity: 100%;
+	}
+	to {
+		transform: translateX(75px);
+		opacity: 0%;
+	}
+}
+
+@keyframes Tabs_Transition_NewTab_Left{
+	from {
+		transform: translateX(-75px);
+		opacity: 0%;
+	}
+	to {
+		transform: translateX(0px);
+		opacity: 100%;
+	}
+}
+
+@keyframes Tabs_Transition_CurrentTab_Right{
+	from {
+		transform: translateX(0px);
+		opacity: 100%;
+	}
+	to {
+		transform: translateX(-75px);
+		opacity: 0%;
+	}
+}
+
+@keyframes Tabs_Transition_NewTab_Right{
+	from {
+		transform: translateX(75px);
+		opacity: 0%;
+	}
+	to {
+		transform: translateX(0px);
+		opacity: 100%;
+	}
+}
+
+@keyframes Accordion_Open{
+    0% {
+        max-height: 0%;
+        opacity: 0%;
+        transform: translateY(-20px);
+        /* transform: translateY(-100%); */
+    }
+    100% {
+        max-height: 100%;
+        opacity: 100%;
+        transform: translateY(0px);
+        /* transform: translateY(0%); */
+    }
+}
+
+@keyframes Accordion_Close{
+    0% {
+        max-height: 100%;
+        opacity: 100%;
+        transform: translateY(0px);
+        transform: translateY(0%);
+    }
+    100% {
+        max-height: 0%;
+        opacity: 0%;
+        transform: translateY(-20px);
+        transform: translateY();
+    }
+}
+
+@keyframes Dropdown_List_Open{
+	/* 0% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%
+	} */
+	from {max-height: 0px; opacity: 0%; transform: translateY(-20px);}
+	to {max-height: 500px; opacity: 100%; transform: translateY(-3px);}
+}
+
+@keyframes Dropdown_List_Close{
+	/* 0% {
+		opacity: 100%;
+	}
+	100% {
+		opacity: 0%
+	} */
+	from {max-height: 500px; opacity: 100%; transform: translateY(-3px);}
+	to {max-height: 0px; opacity: 0%; transform: translateY(-20px);}
+}
+
+@keyframes Dropdown_List_Items_Open{
+	0% {
+		transform: translateY(-75px);
+		opacity: 0%;
+		
+	}
+	100% {
+		transform: translateY(0px);
+		opacity: 100%;
+		
+	}
+}
+
+@keyframes Dropdown_List_Items_Close{
+	0% {
+		transform: translateY(0px);
+		opacity: 100%;
+	}
+	100% {
+		transform: translateY(-75px);
+		opacity: 0%;
+	}
+}
+
+@keyframes Subwindow_MainContainer_Open{
+	from {opacity: 0%;}
+	to {opacity: 100%;}
+}
+
+@keyframes Subwindow_MainContainer_Close{
+	from {opacity: 100%;}
+	to {opacity: 0%;}
+}
+
+@keyframes Subwindow_Open{
+	from {transform: scale(0.9);}
+	to {transform: scale(1);}
+}
+
+@keyframes Subwindow_Close{
+	from {transform: scale(1); opacity: 100%;}
+	to {transform: scale(0.8); opacity: 0%;}
+}
+
+@keyframes Toast_Open{
+	from {transform: scale(0.8); opacity: 0%;}
+	to {transform: scale(1); opacity: 100%;}
+}
+
+@keyframes Toast_Close{
+	from {max-height: 100%; opacity: 100%;}
+	to {max-height: 0%; opacity: 0%;}
+}
+
+@keyframes Loader_Compact_Main{
+	from {transform: rotate(0deg);}
+	to {transform: rotate(360deg);}
+}
+
+@keyframes Loader_Compact_Loading_1{
+	0% {transform: translateX(0%);}
+	100% {transform: translateX(calc(100% + 10px));}
+}
+
+@keyframes Loader_Compact_Loading_2{
+	0% {transform: translateY(0%);}
+	100% {transform: translateY(calc(100% + 10px));}
+}
+
+@keyframes Loader_Compact_Loading_3{
+	0% {transform: translateX(0%);}
+	100% {transform: translateX(calc(-100% - 10px));}
+}
+
+@keyframes Loader_Compact_Loading_4{
+	0% {transform: translateY(0%)}
+	100% {transform: translateY(calc(-100% - 10px))}
+}
+
+@keyframes ClockScreen_Open{
+	0% {transform: translateY(-100%); opacity: 0%}
+	100% {transform: translateY(0%); opacity: 100%}
+}
+
+@keyframes ClockScreen_Close{
+	0% {transform: translateY(0%); opacity: 100%}
+	100% {transform: translateY(-100%); opacity: 0%}
+}

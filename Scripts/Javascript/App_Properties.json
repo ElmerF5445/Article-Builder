@@ -1,0 +1,162 @@
+[
+    {
+        "Page_File": "App_Template.html",
+        "Page_Property": {
+            "TitleBar_Title": "ERUMA UI",
+            "Page": {
+                "Title": "Template",
+                "Icon": "Assets/Icons/favicon.png",
+                "MainView": {
+                    "UseFullContainer": false
+                }
+            },
+            "Header": {
+                "Title": "Template Page",
+                "Icon": "Assets/Icons/favicon.png",
+                "Menu_Contents": {
+                    "PageNavigation": [
+                        {
+                            "Title": "App Template",
+                            "Link": "App_Template.html",
+                            "Icon": "Assets/Icons/icon_home.png"
+                        },
+                        {
+                            "Title": "Settings",
+                            "Link": "App_UniversalSettings.html",
+                            "Icon": "Assets/Icons/icon_settings.png"
+                        },
+                        {
+                            "Title": "Template 2",
+                            "Link": "Pages/App_Template copy.html",
+                            "Icon": "Assets/Icons/icon_settings.png"
+                        }
+                        
+                    ],
+                    "Actions": [
+                        {
+                            "Title": "Action 1",
+                            "Link": null,
+                            "Icon": "Assets/Icons/icon_home.png",
+                            "OnclickFunction": null,
+                            "CloseAfterClick": false
+                        },
+                        {
+                            "Title": "Action 2",
+                            "Link": null,
+                            "Icon": "Assets/Icons/icon_home.png",
+                            "OnclickFunction": null,
+                            "CloseAfterClick": false
+                        }
+                    ]
+                }
+            },
+            "Sidebar": {
+                "HideWhenCollapsed": false,
+                "PushContentWhenExpanded": false,
+                "Width_Expanded": 300,
+                "Width_Collapsed": 40
+            },
+            "LoadingScreen": {
+                "Configuration": "Splash"
+            },
+            "Features": {
+                "Header": true,
+                "Sidebar": true,
+                "Sidebar_Elements": {
+                    "Toggle": true,
+                    "Container": true,
+                    "Tabs": true
+                },
+                "ClockScreen": true,
+                "LoadingScreen": true,
+                "StatusBar": true,
+                "StatusBar_Elements": {
+                    "EnableAll": true,
+                    "Clock": true,
+                    "Battery": true,
+                    "Connection": true
+                },
+                "Ribbon": true,
+                "Toasts": true,
+                "Projects": true
+            }
+        }
+    },
+    {
+        "Page_File": "AB_Editor.html",
+        "Page_Property": {
+            "TitleBar_Title": "Article Builder",
+            "Page": {
+                "Title": "Editor",
+                "Icon": "Assets/Icons/favicon.png",
+                "MainView": {
+                    "UseFullContainer": true
+                }
+            },
+            "Header": {
+                "Title": "Article Builder",
+                "Icon": "Assets/Icons/favicon.png",
+                "Menu_Contents": {
+                    "PageNavigation": [
+                        {
+                            "Title": "App Template",
+                            "Link": "App_Template.html",
+                            "Icon": "Assets/Icons/icon_home.png"
+                        },
+                        {
+                            "Title": "Settings",
+                            "Link": "App_UniversalSettings.html",
+                            "Icon": "Assets/Icons/icon_settings.png"
+                        }
+                    ],
+                    "Actions": [
+                        {
+                            "Title": "Projects",
+                            "Link": null,
+                            "Icon": "Assets/Icons/icon_home.png",
+                            "OnclickFunction": "Projects_Open_ProjectList()",
+                            "CloseAfterClick": true
+                        },
+                        {
+                            "Title": "Action 2",
+                            "Link": null,
+                            "Icon": "Assets/Icons/icon_home.png",
+                            "OnclickFunction": null,
+                            "CloseAfterClick": false
+                        }
+                    ]
+                }
+            },
+            "Sidebar": {
+                "HideWhenCollapsed": false,
+                "PushContentWhenExpanded": false,
+                "Width_Expanded": 300,
+                "Width_Collapsed": 40
+            },
+            "LoadingScreen": {
+                "Configuration": "Simple"
+            },
+            "Features": {
+                "Header": true,
+                "Sidebar": false,
+                "Sidebar_Elements": {
+                    "Toggle": false,
+                    "Container": false,
+                    "Tabs": false
+                },
+                "ClockScreen": true,
+                "LoadingScreen": true,
+                "StatusBar": true,
+                "StatusBar_Elements": {
+                    "EnableAll": true,
+                    "Clock": true,
+                    "Battery": true,
+                    "Connection": true
+                },
+                "Ribbon": true,
+                "Toasts": true,
+                "Projects": false
+            }
+        }
+    }
+]

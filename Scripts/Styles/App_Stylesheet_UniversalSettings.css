@@ -1,0 +1,14 @@
+.Settings_Appearance{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 10px;
+}
+
+.Settings_Appearance_Preview{
+    background-color: aliceblue;
+    position: sticky;
+}
+
+.Settings_Appearance_Preview_Wallpaper{
+    width: 350px;
+}

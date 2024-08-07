@@ -1,0 +1,7 @@
+{
+    "html": {
+        "snippets": {
+            "img": "img[draggable=false loading=lazy]"
+        }
+    }
+}

@@ -1,0 +1,66 @@
+.Debugger_Console{
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr 50px;
+}
+
+.Debugger_Console_Results{
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.Debugger_Console_CommandEntry{
+    background-color: #191919;
+    padding: 10px;
+}
+
+.Debugger_Console_CommandEntry_Input{
+    width: 100%;
+    background-color: #191919;
+    font-family: Roboto;
+    color: white;
+    outline: none;
+    border-style: hidden;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(27, 118, 255);
+}
+
+.Debugger_Console_Text{
+    width: 100%;
+    margin: 0;
+    padding: 3px;
+    color: white;
+}
+
+
+.log{
+    font-family: Roboto;
+    background-color: #19191975;
+}
+
+.log:hover{
+    background-color: #191919;
+}
+
+.warn{
+    font-family: Roboto;
+    background-color: #d6790075;
+}
+
+.warn:hover{
+    background-color: #d67900;
+}
+
+.error{
+    font-family: Roboto;
+    background-color: #d6000075;
+}
+
+.error:hover{
+    background-color: #d60000;
+}
