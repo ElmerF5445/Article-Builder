@@ -88,7 +88,7 @@
             "TitleBar_Title": "Article Builder",
             "Page": {
                 "Title": "Editor",
-                "Icon": "Assets/Icons/favicon.png",
+                "Icon": "Assets/Icons/iconNew_edit.png",
                 "MainView": {
                     "UseFullContainer": true
                 }
@@ -99,30 +99,37 @@
                 "Menu_Contents": {
                     "PageNavigation": [
                         {
-                            "Title": "App Template",
-                            "Link": "App_Template.html",
-                            "Icon": "Assets/Icons/icon_home.png"
+                            "Title": "Editor",
+                            "Link": "",
+                            "Icon": "Assets/Icons/iconNew_edit.png"
                         },
                         {
-                            "Title": "Settings",
-                            "Link": "App_UniversalSettings.html",
-                            "Icon": "Assets/Icons/icon_settings.png"
+                            "Title": "Github Repository",
+                            "Link": "https://github.com/ElmerF5445/Article-Builder",
+                            "Icon": "Assets/Icons/ContentByElmerF.png"
                         }
                     ],
                     "Actions": [
                         {
-                            "Title": "Projects",
+                            "Title": "Import article file",
                             "Link": null,
-                            "Icon": "Assets/Icons/icon_home.png",
-                            "OnclickFunction": "Projects_Open_ProjectList()",
+                            "Icon": "Assets/Icons/iconNew_download.png",
+                            "OnclickFunction": "Subwindows_Open('AB_Editor_Article_Import')",
                             "CloseAfterClick": true
                         },
                         {
-                            "Title": "Action 2",
+                            "Title": "Export article file",
                             "Link": null,
-                            "Icon": "Assets/Icons/icon_home.png",
-                            "OnclickFunction": null,
-                            "CloseAfterClick": false
+                            "Icon": "Assets/Icons/icon_output.png",
+                            "OnclickFunction": "Subwindows_Open('AB_Editor_Article_Export')",
+                            "CloseAfterClick": true
+                        },
+                        {
+                            "Title": "Preview",
+                            "Link": null,
+                            "Icon": "Assets/Icons/iconNew_preview.png",
+                            "OnclickFunction": "Editor_Article_Render_Preview()",
+                            "CloseAfterClick": true
                         }
                     ]
                 }
@@ -134,7 +141,7 @@
                 "Width_Collapsed": 40
             },
             "LoadingScreen": {
-                "Configuration": "Simple"
+                "Configuration": "Splash"
             },
             "Features": {
                 "Header": true,

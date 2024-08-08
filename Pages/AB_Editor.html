@@ -4,9 +4,21 @@
     <title id="Page_Title">
         App by ElmerF
     </title>
-    <base href="/">
+    <base href="../">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta
+        property="og:image" 
+        content="https://elmerf5445.github.io/Article-Builder/Assets/Background/Link_Preview.png"
+    />
+    <meta
+        property="og:title"
+        content="Article Builder"
+    />
+    <meta
+        property="og:description"
+        content="Simple component-based editor on making articles."
+    />
     <link rel="stylesheet" href="Scripts/Styles/App_Main.css">
     <link rel="icon" type="image/png" href="Assets/Icons/favicon.png" sizes="96x96" id="Page_Favicon">
 </head>
@@ -20,6 +32,7 @@
     <script src="Scripts/Javascript/App_Javascript_KeyboardControls.js" defer></script>
     <script src="Scripts/Javascript/App_Javascript_Initialization.js" defer></script>
     <script src="Scripts/Javascript/App_Javascript_Projects.js" defer></script>
+    <script src="Scripts/Javascript/AB_Javascript_Renderer.js" defer></script>
     <script src="Scripts/Javascript/AB_Javascript_Editor.js" defer></script>
     <div class="LoadingScreen" id="LoadingScreen">
         <div class="LoadingScreen_Simple" id="LoadingScreen_Simple" Display="none">
@@ -500,6 +513,12 @@
     </header>
     <header class="Ribbon" id="Ribbon" Style_Margin_Sidebar="Enabled" Style_Margin_Header="Enabled">
         <div class="Ribbon_Section" id="Ribbon_TabIDHere">
+            <div class="Ribbon_Section_Item Ribbon_Toggle" onclick="Editor_ElementList_Toggle()">
+				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/icon_hamburgermenu.png" />
+				<p class="Ribbon_Section_Item_Text">
+					Component list
+				</p>
+			</div>
 			<div class="Ribbon_Section_Item" onclick="Subwindows_Open('AB_Editor_Article_Import')">
 				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/iconNew_download.png" />
 				<p class="Ribbon_Section_Item_Text">
@@ -512,7 +531,7 @@
 					Export article file
 				</p>
 			</div>
-            <div class="Ribbon_Section_Item" onclick="Tabs_ChangeTab_Specific(1, 'Sidebar');">
+            <div class="Ribbon_Section_Item" onclick="Editor_Article_Render_Preview()">
 				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/iconNew_preview.png" />
 				<p class="Ribbon_Section_Item_Text">
 					Preview
@@ -527,7 +546,7 @@
 		</div>
         <div class="Ribbon_Section" id="Ribbon_TabIDHere2">
 			<div class="Ribbon_Section_Item" onclick="Tabs_ChangeTab_Specific(0, 'Sidebar');">
-				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/iconNew_edit.png" />
+				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/icon_leftArrow.png" />
 				<p class="Ribbon_Section_Item_Text">
 					Back to editor
 				</p>
@@ -571,7 +590,7 @@
                 
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_TabIDHere">
                     <div class="AB_Container">
-                        <div class="AB_Sidebar">
+                        <div class="AB_Sidebar" id="AB_Sidebar" State="Collapsed">
                             <div class="AB_Sidebar_List" id="AB_Sidebar_List">
                                 <p class="General_Paragraph">
                                     Elements you add in your article appears here.
@@ -722,7 +741,116 @@
                     
                 </div>
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_TabIDHere2">
-                    
+                    <div class="AB_Renderer">
+                        <div class="AB_Renderer_Banner">
+                            <img class='AB_Renderer_Banner_Image' src='../Assets/Background/ERUMA_UI_1.png' id="AB_Renderer_Banner_Image" draggable='false' loading='lazy'/>
+                        </div>
+                        <div class="AB_Renderer_Header">
+                            <h1 class="AB_Renderer_Header_Title" id="AB_Renderer_Header_Title">
+                                Article Title
+                            </h1>
+                            <div class="AB_Renderer_Header_Details">
+                                <p class="AB_Renderer_Header_Details_Title">
+                                    Author:
+                                </p>
+                                <p class="AB_Renderer_Header_Details_Data" id="AB_Renderer_Header_Details_Author">
+                                    Author
+                                </p>
+                                <p class="AB_Renderer_Header_Details_Title">
+                                    Category:
+                                </p>
+                                <p class="AB_Renderer_Header_Details_Data" id="AB_Renderer_Header_Details_Category">
+                                    Category
+                                </p><p class="AB_Renderer_Header_Details_Title">
+                                    Date published:
+                                </p>
+                                <p class="AB_Renderer_Header_Details_Data" id="AB_Renderer_Header_Details_PublishingDate">
+                                    Publishing date
+                                </p>
+                            </div>
+                        </div>
+                        <div class="AB_Renderer_Contents" id="AB_Renderer_Contents">
+                            <h1 class="AB_Renderer_Title_Primary">
+                                Primary title
+                            </h1>
+                            <h1 class="AB_Renderer_Title_Secondary">
+                                Secondary title
+                            </h1>
+                            <p class="AB_Renderer_Paragraph">
+                                Paragraph
+                            </p>
+                            <div class="AB_Renderer_List">
+                                <p class="AB_Renderer_List_Header">
+                                    Numbered list header
+                                </p>
+                                <ol>
+                                    <li>
+                                        <p class="AB_Renderer_List_Content">
+                                            List item
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="AB_Renderer_List_Content">
+                                            List item
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="AB_Renderer_List_Content">
+                                            List item
+                                        </p>
+                                    </li>
+                                </ol>
+                            </div>
+                            <div class="AB_Renderer_List">
+                                <p class="AB_Renderer_List_Header">
+                                    Bulleted list header
+                                </p>
+                                <ul>
+                                    <li>
+                                        <p class="AB_Renderer_List_Content">
+                                            List item
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="AB_Renderer_List_Content">
+                                            List item
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="AB_Renderer_List_Content">
+                                            List item
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="AB_Renderer_Quote">
+                                <h1 class="AB_Renderer_Quote_Apostrophe Apostrophe_1">
+                                    "
+                                </h1>
+                                <h3 class="AB_Renderer_Quote_Content">
+                                    Content
+                                </h3>
+                                <h1 class="AB_Renderer_Quote_Apostrophe Apostrophe_2">
+                                    "
+                                </h1>
+                                <h4 class="AB_Renderer_Quote_Source">
+                                    Source
+                                </h4>
+                            </div>
+                            <div class="AB_Renderer_Image">
+                                <img class='AB_Renderer_Image_Image' src='Assets/Background/ERUMA_UI_1.png' draggable='false' loading='lazy'/>
+                                <p class="AB_Renderer_Image_Description">
+                                    Description
+                                </p>
+                                <p class="AB_Renderer_Image_Credits">
+                                    Credits
+                                </p>
+                            </div>
+                            <div class="AB_Renderer_Video" Element_Type="Video">
+                                <iframe class="AB_Renderer_Video_Video" src="https://www.youtube.com/embed/X9-PkmIVoDc?si=YAfKSCx3xiBYg7Os" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_TabIDHere3">
                     

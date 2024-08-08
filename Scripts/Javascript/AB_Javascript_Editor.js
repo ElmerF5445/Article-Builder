@@ -465,6 +465,15 @@ function Editor_Article_Import(){
     Subwindows_Close("AB_Editor_Article_Import");
 }
 
-let AB_Generation_Definitions = {
-    
+function Editor_Article_Render_Preview(){
+    AB_Renderer_Article_Render(AB_Editor_Data);
+    Tabs_ChangeTab_Specific(1, 'Sidebar');
+}
+
+function Editor_ElementList_Toggle(){
+    if(Element_Attribute_Get("AB_Sidebar", "State") == "Expanded"){
+        Element_Attribute_Set("AB_Sidebar", "State", "Collapsed");
+    } else {
+        Element_Attribute_Set("AB_Sidebar", "State", "Expanded");
+    }
 }

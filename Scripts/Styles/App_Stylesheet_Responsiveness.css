@@ -223,3 +223,28 @@
         }
     }
 }
+
+@media only screen and (max-width: 700px){
+    .Ribbon_Section{
+        height: 30px;
+    }
+    .Ribbon_Section_Item_Text{
+        display: none;
+    }
+    .AB_Container{
+        grid-template-columns: 1fr;
+        grid-template-areas: unset;
+    }
+    .AB_Sidebar[State = "Collapsed"]{
+        transform: translateX(-300px);
+    }
+    .AB_Sidebar[State = "Expanded"]{
+        transform: translateX(0px);
+    }
+    .Ribbon_Toggle{
+        display: grid;
+    }
+    .MainContent[Style_Margin_Header="Enabled"][Style_Margin_Ribbon="Enabled"]{
+        height: unset;
+    }
+}
