@@ -1,6 +1,6 @@
 let AB_Editor_Data = {
     "Metadata": {
-        "Article_Banner": null,
+        "Article_Banner": "https://elmerf5445.github.io/Article-Builder/Assets/Background/Splash.png",
         "Article_Title": null,
         "Article_Title_Height": null,
         "Article_Author": null,
@@ -184,8 +184,8 @@ function Editor_Article_Render(){
                         ${Object.Content}
                     </p>
                 </div>
-                <img class='AB_Sidebar_List_Item_Jump' src='../Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
-                <img class='AB_Sidebar_List_Item_Delete' src='../Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
+                <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
+                <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
             </div>
             <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${a}" onclick="Editor_Element_Rearrange_Insert(${a}, ${a + 1})">
                 <p class="AB_Sidebar_List_Item_Inserter_Text">
@@ -228,8 +228,8 @@ function Editor_Article_Render(){
                             ${Object.Description}
                         </p>
                     </div>
-                    <img class='AB_Sidebar_List_Item_Jump' src='../Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
-                    <img class='AB_Sidebar_List_Item_Delete' src='../Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
+                    <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
+                    <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
                 </div>
                 <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${a}" onclick="Editor_Element_Rearrange_Insert(${a}, ${a + 1})">
                 <p class="AB_Sidebar_List_Item_Inserter_Text">
@@ -255,8 +255,8 @@ function Editor_Article_Render(){
                             ${Object.Header}
                         </p>
                     </div>
-                    <img class='AB_Sidebar_List_Item_Jump' src='../Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
-                    <img class='AB_Sidebar_List_Item_Delete' src='../Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
+                    <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
+                    <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
                 </div>
                 <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${a}" onclick="Editor_Element_Rearrange_Insert(${a}, ${a + 1})">
                 <p class="AB_Sidebar_List_Item_Inserter_Text">
@@ -282,8 +282,8 @@ function Editor_Article_Render(){
                             ${Object.Header}
                         </p>
                     </div>
-                    <img class='AB_Sidebar_List_Item_Jump' src='../Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
-                    <img class='AB_Sidebar_List_Item_Delete' src='../Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
+                    <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
+                    <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
                 </div>
                 <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${a}" onclick="Editor_Element_Rearrange_Insert(${a}, ${a + 1})">
                 <p class="AB_Sidebar_List_Item_Inserter_Text">
@@ -323,8 +323,8 @@ function Editor_Article_Render(){
                             ${Object.Source}
                         </p>
                     </div>
-                    <img class='AB_Sidebar_List_Item_Jump' src='../Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
-                    <img class='AB_Sidebar_List_Item_Delete' src='../Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
+                    <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
+                    <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
                 </div>
                 <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${a}" onclick="Editor_Element_Rearrange_Insert(${a}, ${a + 1})">
                 <p class="AB_Sidebar_List_Item_Inserter_Text">
