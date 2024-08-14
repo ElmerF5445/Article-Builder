@@ -477,3 +477,62 @@ function Editor_ElementList_Toggle(){
         Element_Attribute_Set("AB_Sidebar", "State", "Expanded");
     }
 }
+
+function Editor_Tag_Add(Tag_Opening, Tag_Closing){
+    // Get the currently focused element
+    var activeElement = document.activeElement;
+ 
+    // Check if the active element is a textarea or text input
+    if (activeElement.tagName.toLowerCase() === 'textarea' || activeElement.tagName.toLowerCase() === 'input') {
+        // Get the cursor position
+        var start = activeElement.selectionStart;
+        var end = activeElement.selectionEnd;
+ 
+        // Get the text content
+        var text = activeElement.value;
+ 
+        // Save the current state to the history
+     //    textAreaHistory.push({ text: text, start: start, end: end });
+ 
+        // Insert opening and closing tags around the selected text (or at the cursor position if no text is selected)
+        var newText = text.slice(0, start) + Tag_Opening + text.slice(start, end) + Tag_Closing + text.slice(end);
+ 
+        // Update the element value with the modified text
+        activeElement.value = newText;
+ 
+        // Adjust the cursor position after the inserted tags
+        activeElement.selectionStart = start + Tag_Opening.length;
+        activeElement.selectionEnd = end + Tag_Opening.length;
+    } else {
+        console.error('The currently active element is not a textarea or input.');
+    }
+     
+ }
+ 
+ // Listen for Ctrl+B key combination
+ document.addEventListener('keydown', function(event) {
+     if (event.ctrlKey && event.key === 'b') {
+         event.preventDefault();
+         Editor_Tag_Add('<b>', '</b>'); 
+     }
+     if (event.ctrlKey && event.key === 'i') {
+         event.preventDefault();
+         Editor_Tag_Add('<i>', '</i>'); 
+     }
+     if (event.ctrlKey && event.key === 'u') {
+         event.preventDefault();
+         Editor_Tag_Add('<u>', '</u>'); 
+     }
+     if (event.altKey && event.key === 'u') {
+         event.preventDefault();
+         Editor_Tag_Add('<ul>', '</ul>'); 
+     }
+     if (event.altKey && event.key === 'l') {
+         event.preventDefault();
+         Editor_Tag_Add('<li>', '</li>'); 
+     }
+     if (event.altKey && event.key === 'o') {
+         event.preventDefault();
+         Editor_Tag_Add('<ol>', '</ol>'); 
+     }
+ });

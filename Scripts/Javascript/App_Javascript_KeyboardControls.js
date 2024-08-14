@@ -2,7 +2,7 @@ let keysPressed = {};
 document.addEventListener('keydown', (event) => {
 	keysPressed[event.key] = true;
 
-	if (keysPressed['Control'] && event.key == 'b') {
+	if (keysPressed['Control'] && event.key == 'y') {
         if(Element_Attribute_Get("ClockScreen", "UI_Status") != "Disabled"){
             ClockScreen_Toggle();
         }
