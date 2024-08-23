@@ -26,11 +26,11 @@
     <!-- <script src="Scripts/Javascript/App_Main.js"></script> -->
     <script src="Scripts/Javascript/FileSaver.js" defer></script>
     <script src="Scripts/Javascript/App_Javascript_Debugging.js" defer></script>
-    <script src="Scripts/Javascript/App_Javascript_ERUMAUI_Core.js" defer></script>
-    <script src="Scripts/Javascript/App_Javascript_ERUMAUI.js" defer></script>
+    <script src="https://elmerf5445.github.io/ERUMA-UI/Scripts/Javascript/App_Javascript_ERUMAUI_Core.js" defer></script>
+    <script src="https://elmerf5445.github.io/ERUMA-UI/Scripts/Javascript/App_Javascript_ERUMAUI.js" defer></script>
     <script src="Scripts/Javascript/App_Javascript_Extras.js" defer></script>
     <script src="Scripts/Javascript/App_Javascript_KeyboardControls.js" defer></script>
-    <script src="Scripts/Javascript/App_Javascript_Initialization.js" defer></script>
+    <script src="https://elmerf5445.github.io/ERUMA-UI/Scripts/Javascript/App_Javascript_Initialization.js" defer></script>
     <script src="Scripts/Javascript/App_Javascript_Projects.js" defer></script>
     <script src="Scripts/Javascript/AB_Javascript_Renderer.js" defer></script>
     <script src="Scripts/Javascript/AB_Javascript_Editor.js" defer></script>
@@ -554,7 +554,7 @@
 		</div>
     </header>
     <div class="Tabs_Vertical_Container_Selector Sidebar" id="Sidebar" State="Collapsed" Style_Margin_Header="Enabled">
-        <div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="Editor" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_TabIDHere" Tabs_UseRibbon="true" Tabs_Tab_Target_Ribbon="Ribbon_TabIDHere" Tabs_UseHeaderTitle="true" State="Selected" Tabs_UseFullContainer="true">
+        <div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="Editor" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_TabIDHere" Tabs_UseRibbon="true" Tabs_Tab_Target_Ribbon="Ribbon_TabIDHere" Tabs_UseHeaderTitle="true" State="Selected" Tabs_UseFullContainer="false" style="display: none">
 			<div class="Tabs_Vertical_Container_Selector_Item_Icon">
 				<h2 class="Tabs_Vertical_Container_Selector_Item_Icon_Icon">
 					1
@@ -564,7 +564,7 @@
 				Tab 1
 			</p>
 		</div>
-		<div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere2" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="Preview" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_TabIDHere2" Tabs_UseRibbon="true" Tabs_Tab_Target_Ribbon="Ribbon_TabIDHere2" Tabs_UseHeaderTitle="true" Tabs_UseFullContainer="false">
+		<div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere2" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="Preview" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_TabIDHere2" Tabs_UseRibbon="true" Tabs_Tab_Target_Ribbon="Ribbon_TabIDHere2" Tabs_UseHeaderTitle="true" Tabs_UseFullContainer="false" style="display: none">
 			<div class="Tabs_Vertical_Container_Selector_Item_Icon">
 				<img src="Assets/Icons/placeholder.png" class="Tabs_Vertical_Container_Selector_Item_Icon_Icon"/>
 			</div>
@@ -572,7 +572,7 @@
 				Tab 2
 			</p>
 		</div>
-		<div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere3" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="New UI Elements" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_TabIDHere3" Tabs_UseRibbon="hide" Tabs_Tab_Target_Ribbon="Ribbon_TabIDHere2" Tabs_UseHeaderTitle="true" Tabs_UseFullContainer="true">
+		<div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere3" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="New UI Elements" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_TabIDHere3" Tabs_UseRibbon="hide" Tabs_Tab_Target_Ribbon="Ribbon_TabIDHere2" Tabs_UseHeaderTitle="true" Tabs_UseFullContainer="true" style="display: none">
 			<div class="Tabs_Vertical_Container_Selector_Item_Icon">
 				<h2 class="Tabs_Vertical_Container_Selector_Item_Icon_Icon">
 					3
@@ -582,6 +582,47 @@
 				Tab 3
 			</p>
 		</div>
+        <div class="AB_Sidebar_List" id="AB_Sidebar_List">
+            <p class="General_Paragraph">
+                Elements you add in your article appears here.
+            </p>
+            <!-- <div class="AB_Sidebar_List_Item">
+                <div class="AB_Sidebar_List_Item_Content">
+                    <p class="AB_Sidebar_List_Item_Type">
+                        Type
+                    </p>
+                    <p class="AB_Sidebar_List_Item_Text">
+                        Content Text
+                    </p>
+                </div>
+                <img class='AB_Sidebar_List_Item_Jump' src='../Assets/Icons/iconNew_link.png' draggable='false' loading='lazy'/>
+                <img class='AB_Sidebar_List_Item_Delete' src='../Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy'/>
+            </div>
+            <div class="AB_Sidebar_List_Item">
+                <div class="AB_Sidebar_List_Item_Content">
+                    <p class="AB_Sidebar_List_Item_Type">
+                        Type
+                    </p>
+                    <p class="AB_Sidebar_List_Item_Text">
+                        Content Text
+                    </p>
+                </div>
+                <img class='AB_Sidebar_List_Item_Jump' src='../Assets/Icons/iconNew_link.png' draggable='false' loading='lazy'/>
+                <img class='AB_Sidebar_List_Item_Delete' src='../Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy'/>
+            </div>
+            <div class="AB_Sidebar_List_Item">
+                <div class="AB_Sidebar_List_Item_Content">
+                    <p class="AB_Sidebar_List_Item_Type">
+                        Type
+                    </p>
+                    <p class="AB_Sidebar_List_Item_Text">
+                        Content Text
+                    </p>
+                </div>
+                <img class='AB_Sidebar_List_Item_Jump' src='../Assets/Icons/iconNew_link.png' draggable='false' loading='lazy'/>
+                <img class='AB_Sidebar_List_Item_Delete' src='../Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy'/>
+            </div> -->
+        </div>
     </div>
     <div class="MainContent_Container" id="MainContent_Container">
         <div class="MainContent_Container_Pusher" id="MainContent_Container_Pusher"></div>
@@ -589,8 +630,112 @@
             <div class="Content" id="Content" Style_Margin="Enabled" Tabs_CurrentTab="">
                 
                 <div class="Tab_Container_Content_Item Content_Item" id="tab_TabIDHere">
+                    <div class="AB_Editor">
+                        <div class="AB_Editor_Banner">
+                            <img class='AB_Editor_Banner_Image' src='https://elmerf5445.github.io/Article-Builder/Assets/Background/Splash.png' id="AB_Editor_Banner_Image" draggable='false' loading='lazy'/>
+                            <input type="text" class="Input_Text AB_Editor_Banner_Source" id="AB_Editor_Header_Banner" autocomplete="off" placeholder="Banner source" onchange="Editor_Article_Data_Update()"/>
+                        </div>
+                        
+                        <div class="AB_Editor_MainContents">
+                            <div class="AB_Editor_Header">
+                                <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Editor_Header_Title" id="AB_Editor_Header_Title" autocomplete="off" Autoresize="true" placeholder="Article title" onchange="Editor_Article_Data_Update()"></textarea>
+                                <form class="Input_Form" Label_Position="Left" autocomplete="off" style="padding-left: 10px">
+                                    <label class="Input_Label" for="AB_Editor_Header_Author">
+                                        Author: 
+                                    </label>
+                                    <input type="text" class="Input_Text AB_Editor_Input" id="AB_Editor_Header_Author" autocomplete="off" placeholder="Article author" onchange="Editor_Article_Data_Update()"/>
+
+                                    <label class="Input_Label" for="AB_Editor_Header_Category">
+                                        Category: 
+                                    </label>
+                                    <input type="text" class="Input_Text AB_Editor_Input" id="AB_Editor_Header_Category" autocomplete="off" placeholder="Article category" onchange="Editor_Article_Data_Update()"/>
+
+                                    <label class="Input_Label" for="AB_Editor_Header_DatePublished">
+                                        Date published: 
+                                    </label>
+                                    <input type="text" class="Input_Text AB_Editor_Input" id="AB_Editor_Header_DatePublished" autocomplete="off" placeholder="Article publishing date" onchange="Editor_Article_Data_Update()"/>
+                                </form> 
+                            </div>
+                            <div class="AB_Editor_Content" id="AB_Editor_Content">
+                                
+                            </div>
+                            <div class="AB_Editor_Content">
+                                <!-- Primary title -->
+                                <!-- <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Title" id="" autocomplete="off" Autoresize="true" placeholder="Primary title" Element_Type="Title_Primary"></textarea> -->
+                                <!-- Secondary title -->
+                                <!-- <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Title" id="" autocomplete="off" Autoresize="true" placeholder="Secondary title" Element_Type="Title_Secondary"></textarea> -->
+                                <!-- Paragraph -->
+                                <!-- <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Paragraph" id="" autocomplete="off" Autoresize="true" placeholder="Paragraph" Element_Type="Paragraph"></textarea> -->
+                                <!-- Image -->
+                                <!-- <div class="AB_Element_Image">
+                                    <img class='AB_Element_Image_Image' src='../Assets/Background/ERUMA_UI_1.png' draggable='false' loading='lazy'/>
+                                    <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Source"/>
+                                    <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Description"/>
+                                    <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Credits"/>
+                                </div> -->
+                                <!-- Video -->
+                                <!-- <div class="AB_Element_Video" Element_Type="Video">
+                                    <iframe class="AB_Element_Video_Video" src="https://www.youtube.com/embed/X9-PkmIVoDc?si=YAfKSCx3xiBYg7Os" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+                                    <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Source"/>
+                                </div> -->
+                                <!-- Numbered list -->
+                                <!-- <div class="AB_Element_List" Element_Type="Numbered_List">
+                                    <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Numbered list header"/>
+                                    <textarea type="text" class="Input_Text_Long AB_Editor_Input" id="" autocomplete="off" Autoresize="true" placeholder="List contents (Use line breaks to separate line items)"></textarea>
+                                </div> -->
+                                <!-- Bulleted list -->
+                                <!-- <div class="AB_Element_List" Element_Type="Bulleted_List">
+                                    <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Bulleted list header"/>
+                                    <textarea type="text" class="Input_Text_Long AB_Editor_Input" id="" autocomplete="off" Autoresize="true" placeholder="List contents (Use line breaks to separate line items)"></textarea>
+                                </div> -->
+                                <!-- Quote -->
+                                <!-- <div class="AB_Element_Quote" Element_Type="Quote">
+                                    <h1 class="AB_Element_Quote_Apostrophe Apostrophe_1">
+                                        "
+                                    </h1>
+                                    <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Quote_Contents" id="" autocomplete="off" Autoresize="true" placeholder="Quote"></textarea>
+                                    <h1 class="AB_Element_Quote_Apostrophe Apostrophe_2">
+                                        "
+                                    </h1>
+                                    <input type="text" class="Input_Text AB_Editor_Input AB_Element_Quote_Source" id="" autocomplete="off" placeholder="Source"/>
+                                </div> -->
+                                
+                            </div>
+                            <div class="AB_Editor_AddElements">
+                                <h3 class="AB_Editor_AddElements_Title">
+                                    Add elements
+                                </h3>
+                                <div class="AB_Editor_AddElements_Buttons">
+                                    <button class="General_Button" onclick="Editor_Element_Add('Primary_Title')">
+                                        Primary title
+                                    </button>
+                                    <button class="General_Button" onclick="Editor_Element_Add('Secondary_Title')">
+                                        Secondary title
+                                    </button>
+                                    <button class="General_Button" onclick="Editor_Element_Add('Paragraph')">
+                                        Paragraph
+                                    </button>
+                                    <button class="General_Button" onclick="Editor_Element_Add('Numbered_List')">
+                                        Numbered list
+                                    </button>
+                                    <button class="General_Button" onclick="Editor_Element_Add('Bulleted_List')">
+                                        Bulleted list
+                                    </button>
+                                    <button class="General_Button" onclick="Editor_Element_Add('Quote')">
+                                        Quote
+                                    </button>
+                                    <button class="General_Button" onclick="Editor_Element_Add('Image')">
+                                        Image
+                                    </button>
+                                    <button class="General_Button" onclick="Editor_Element_Add('Video')">
+                                        Video
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="AB_Container">
-                        <div class="AB_Sidebar" id="AB_Sidebar" State="Collapsed">
+                        <div class="AB_Sidebar" id="AB_Sidebar" State="Collapsed" style="display: none;">
                             <div class="AB_Sidebar_List" id="AB_Sidebar_List">
                                 <p class="General_Paragraph">
                                     Elements you add in your article appears here.
@@ -633,110 +778,7 @@
                                 </div> -->
                             </div>
                         </div>
-                        <div class="AB_Editor">
-                            <div class="AB_Editor_Banner">
-                                <img class='AB_Editor_Banner_Image' src='https://elmerf5445.github.io/Article-Builder/Assets/Background/Splash.png' id="AB_Editor_Banner_Image" draggable='false' loading='lazy'/>
-                                <input type="text" class="Input_Text AB_Editor_Banner_Source" id="AB_Editor_Header_Banner" autocomplete="off" placeholder="Banner source" onchange="Editor_Article_Data_Update()"/>
-                            </div>
-                            
-                            <div class="AB_Editor_MainContents">
-                                <div class="AB_Editor_Header">
-                                    <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Editor_Header_Title" id="AB_Editor_Header_Title" autocomplete="off" Autoresize="true" placeholder="Article title" onchange="Editor_Article_Data_Update()"></textarea>
-                                    <form class="Input_Form" Label_Position="Left" autocomplete="off" style="padding-left: 10px">
-                                        <label class="Input_Label" for="AB_Editor_Header_Author">
-                                            Author: 
-                                        </label>
-                                        <input type="text" class="Input_Text AB_Editor_Input" id="AB_Editor_Header_Author" autocomplete="off" placeholder="Article author" onchange="Editor_Article_Data_Update()"/>
-    
-                                        <label class="Input_Label" for="AB_Editor_Header_Category">
-                                            Category: 
-                                        </label>
-                                        <input type="text" class="Input_Text AB_Editor_Input" id="AB_Editor_Header_Category" autocomplete="off" placeholder="Article category" onchange="Editor_Article_Data_Update()"/>
-    
-                                        <label class="Input_Label" for="AB_Editor_Header_DatePublished">
-                                            Date published: 
-                                        </label>
-                                        <input type="text" class="Input_Text AB_Editor_Input" id="AB_Editor_Header_DatePublished" autocomplete="off" placeholder="Article publishing date" onchange="Editor_Article_Data_Update()"/>
-                                    </form> 
-                                </div>
-                                <div class="AB_Editor_Content" id="AB_Editor_Content">
-                                    
-                                </div>
-                                <div class="AB_Editor_Content">
-                                    <!-- Primary title -->
-                                    <!-- <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Title" id="" autocomplete="off" Autoresize="true" placeholder="Primary title" Element_Type="Title_Primary"></textarea> -->
-                                    <!-- Secondary title -->
-                                    <!-- <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Title" id="" autocomplete="off" Autoresize="true" placeholder="Secondary title" Element_Type="Title_Secondary"></textarea> -->
-                                    <!-- Paragraph -->
-                                    <!-- <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Paragraph" id="" autocomplete="off" Autoresize="true" placeholder="Paragraph" Element_Type="Paragraph"></textarea> -->
-                                    <!-- Image -->
-                                    <!-- <div class="AB_Element_Image">
-                                        <img class='AB_Element_Image_Image' src='../Assets/Background/ERUMA_UI_1.png' draggable='false' loading='lazy'/>
-                                        <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Source"/>
-                                        <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Description"/>
-                                        <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Credits"/>
-                                    </div> -->
-                                    <!-- Video -->
-                                    <!-- <div class="AB_Element_Video" Element_Type="Video">
-                                        <iframe class="AB_Element_Video_Video" src="https://www.youtube.com/embed/X9-PkmIVoDc?si=YAfKSCx3xiBYg7Os" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
-                                        <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Source"/>
-                                    </div> -->
-                                    <!-- Numbered list -->
-                                    <!-- <div class="AB_Element_List" Element_Type="Numbered_List">
-                                        <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Numbered list header"/>
-                                        <textarea type="text" class="Input_Text_Long AB_Editor_Input" id="" autocomplete="off" Autoresize="true" placeholder="List contents (Use line breaks to separate line items)"></textarea>
-                                    </div> -->
-                                    <!-- Bulleted list -->
-                                    <!-- <div class="AB_Element_List" Element_Type="Bulleted_List">
-                                        <input type="text" class="Input_Text AB_Editor_Input" id="" autocomplete="off" placeholder="Bulleted list header"/>
-                                        <textarea type="text" class="Input_Text_Long AB_Editor_Input" id="" autocomplete="off" Autoresize="true" placeholder="List contents (Use line breaks to separate line items)"></textarea>
-                                    </div> -->
-                                    <!-- Quote -->
-                                    <!-- <div class="AB_Element_Quote" Element_Type="Quote">
-                                        <h1 class="AB_Element_Quote_Apostrophe Apostrophe_1">
-                                            "
-                                        </h1>
-                                        <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Quote_Contents" id="" autocomplete="off" Autoresize="true" placeholder="Quote"></textarea>
-                                        <h1 class="AB_Element_Quote_Apostrophe Apostrophe_2">
-                                            "
-                                        </h1>
-                                        <input type="text" class="Input_Text AB_Editor_Input AB_Element_Quote_Source" id="" autocomplete="off" placeholder="Source"/>
-                                    </div> -->
-                                    
-                                </div>
-                                <div class="AB_Editor_AddElements">
-                                    <h3 class="AB_Editor_AddElements_Title">
-                                        Add elements
-                                    </h3>
-                                    <div class="AB_Editor_AddElements_Buttons">
-                                        <button class="General_Button" onclick="Editor_Element_Add('Primary_Title')">
-                                            Primary title
-                                        </button>
-                                        <button class="General_Button" onclick="Editor_Element_Add('Secondary_Title')">
-                                            Secondary title
-                                        </button>
-                                        <button class="General_Button" onclick="Editor_Element_Add('Paragraph')">
-                                            Paragraph
-                                        </button>
-                                        <button class="General_Button" onclick="Editor_Element_Add('Numbered_List')">
-                                            Numbered list
-                                        </button>
-                                        <button class="General_Button" onclick="Editor_Element_Add('Bulleted_List')">
-                                            Bulleted list
-                                        </button>
-                                        <button class="General_Button" onclick="Editor_Element_Add('Quote')">
-                                            Quote
-                                        </button>
-                                        <button class="General_Button" onclick="Editor_Element_Add('Image')">
-                                            Image
-                                        </button>
-                                        <button class="General_Button" onclick="Editor_Element_Add('Video')">
-                                            Video
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     
                 </div>

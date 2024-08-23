@@ -1,169 +1,180 @@
-[
-    {
-        "Page_File": "App_Template.html",
-        "Page_Property": {
-            "TitleBar_Title": "ERUMA UI",
-            "Page": {
-                "Title": "Template",
-                "Icon": "Assets/Icons/favicon.png",
-                "MainView": {
-                    "UseFullContainer": false
-                }
-            },
-            "Header": {
-                "Title": "Template Page",
-                "Icon": "Assets/Icons/favicon.png",
-                "Menu_Contents": {
-                    "PageNavigation": [
-                        {
-                            "Title": "App Template",
-                            "Link": "App_Template.html",
-                            "Icon": "Assets/Icons/icon_home.png"
-                        },
-                        {
-                            "Title": "Settings",
-                            "Link": "App_UniversalSettings.html",
-                            "Icon": "Assets/Icons/icon_settings.png"
-                        },
-                        {
-                            "Title": "Template 2",
-                            "Link": "Pages/App_Template copy.html",
-                            "Icon": "Assets/Icons/icon_settings.png"
-                        }
-                        
-                    ],
-                    "Actions": [
-                        {
-                            "Title": "Action 1",
-                            "Link": null,
-                            "Icon": "Assets/Icons/icon_home.png",
-                            "OnclickFunction": null,
-                            "CloseAfterClick": false
-                        },
-                        {
-                            "Title": "Action 2",
-                            "Link": null,
-                            "Icon": "Assets/Icons/icon_home.png",
-                            "OnclickFunction": null,
-                            "CloseAfterClick": false
-                        }
-                    ]
-                }
-            },
-            "Sidebar": {
-                "HideWhenCollapsed": false,
-                "PushContentWhenExpanded": false,
-                "Width_Expanded": 300,
-                "Width_Collapsed": 40
-            },
-            "LoadingScreen": {
-                "Configuration": "Splash"
-            },
-            "Features": {
-                "Header": true,
-                "Sidebar": true,
-                "Sidebar_Elements": {
-                    "Toggle": true,
-                    "Container": true,
-                    "Tabs": true
-                },
-                "ClockScreen": true,
-                "LoadingScreen": true,
-                "StatusBar": true,
-                "StatusBar_Elements": {
-                    "EnableAll": true,
-                    "Clock": true,
-                    "Battery": true,
-                    "Connection": true
-                },
-                "Ribbon": true,
-                "Toasts": true,
-                "Projects": true
-            }
-        }
+{
+    "App_Info": {
+        "Title": "Article Builder",
+        "Version_Title": "1.0",
+        "Version_Number": "1.0",
+        "Version_CompilationDate": "23 August 2024",
+        "Copyright_Title": "Content By ElmerF 2024",
+        "Copyright_Icon": "Assets/Icons/ContentByElmerF.png",
+        "Key_Prefix": "AB"
     },
-    {
-        "Page_File": "AB_Editor.html",
-        "Page_Property": {
-            "TitleBar_Title": "Article Builder",
-            "Page": {
-                "Title": "Editor",
-                "Icon": "Assets/Icons/iconNew_edit.png",
-                "MainView": {
-                    "UseFullContainer": true
-                }
-            },
-            "Header": {
-                "Title": "Article Builder",
-                "Icon": "Assets/Icons/favicon.png",
-                "Menu_Contents": {
-                    "PageNavigation": [
-                        {
-                            "Title": "Editor",
-                            "Link": "",
-                            "Icon": "Assets/Icons/iconNew_edit.png"
-                        },
-                        {
-                            "Title": "Github Repository",
-                            "Link": "https://github.com/ElmerF5445/Article-Builder",
-                            "Icon": "Assets/Icons/ContentByElmerF.png"
-                        }
-                    ],
-                    "Actions": [
-                        {
-                            "Title": "Import article file",
-                            "Link": null,
-                            "Icon": "Assets/Icons/iconNew_download.png",
-                            "OnclickFunction": "Subwindows_Open('AB_Editor_Article_Import')",
-                            "CloseAfterClick": true
-                        },
-                        {
-                            "Title": "Export article file",
-                            "Link": null,
-                            "Icon": "Assets/Icons/icon_output.png",
-                            "OnclickFunction": "Subwindows_Open('AB_Editor_Article_Export')",
-                            "CloseAfterClick": true
-                        },
-                        {
-                            "Title": "Preview",
-                            "Link": null,
-                            "Icon": "Assets/Icons/iconNew_preview.png",
-                            "OnclickFunction": "Editor_Article_Render_Preview()",
-                            "CloseAfterClick": true
-                        }
-                    ]
-                }
-            },
-            "Sidebar": {
-                "HideWhenCollapsed": false,
-                "PushContentWhenExpanded": false,
-                "Width_Expanded": 300,
-                "Width_Collapsed": 40
-            },
-            "LoadingScreen": {
-                "Configuration": "Splash"
-            },
-            "Features": {
-                "Header": true,
-                "Sidebar": false,
-                "Sidebar_Elements": {
-                    "Toggle": false,
-                    "Container": false,
-                    "Tabs": false
+    "App_Properties": [
+        {
+            "Page_File": "App_Template.html",
+            "Page_Property": {
+                "TitleBar_Title": "ERUMA UI",
+                "Page": {
+                    "Title": "Template",
+                    "Icon": "Assets/Icons/favicon.png",
+                    "MainView": {
+                        "UseFullContainer": false
+                    }
                 },
-                "ClockScreen": true,
-                "LoadingScreen": true,
-                "StatusBar": true,
-                "StatusBar_Elements": {
-                    "EnableAll": true,
-                    "Clock": true,
-                    "Battery": true,
-                    "Connection": true
+                "Header": {
+                    "Title": "Template Page",
+                    "Icon": "Assets/Icons/favicon.png",
+                    "Menu_Contents": {
+                        "PageNavigation": [
+                            {
+                                "Title": "App Template",
+                                "Link": "App_Template.html",
+                                "Icon": "Assets/Icons/icon_home.png"
+                            },
+                            {
+                                "Title": "Settings",
+                                "Link": "App_UniversalSettings.html",
+                                "Icon": "Assets/Icons/icon_settings.png"
+                            },
+                            {
+                                "Title": "Template 2",
+                                "Link": "Pages/App_Template copy.html",
+                                "Icon": "Assets/Icons/icon_settings.png"
+                            }
+                            
+                        ],
+                        "Actions": [
+                            {
+                                "Title": "Action 1",
+                                "Link": null,
+                                "Icon": "Assets/Icons/icon_home.png",
+                                "OnclickFunction": null,
+                                "CloseAfterClick": false
+                            },
+                            {
+                                "Title": "Action 2",
+                                "Link": null,
+                                "Icon": "Assets/Icons/icon_home.png",
+                                "OnclickFunction": null,
+                                "CloseAfterClick": false
+                            }
+                        ]
+                    }
                 },
-                "Ribbon": true,
-                "Toasts": true,
-                "Projects": false
+                "Sidebar": {
+                    "HideWhenCollapsed": false,
+                    "PushContentWhenExpanded": false,
+                    "Width_Expanded": 300,
+                    "Width_Collapsed": 40
+                },
+                "LoadingScreen": {
+                    "Configuration": "Splash"
+                },
+                "Features": {
+                    "Header": true,
+                    "Sidebar": true,
+                    "Sidebar_Elements": {
+                        "Toggle": true,
+                        "Container": true,
+                        "Tabs": true
+                    },
+                    "ClockScreen": true,
+                    "LoadingScreen": true,
+                    "StatusBar": true,
+                    "StatusBar_Elements": {
+                        "EnableAll": true,
+                        "Clock": true,
+                        "Battery": true,
+                        "Connection": true
+                    },
+                    "Ribbon": true,
+                    "Toasts": true,
+                    "Projects": true
+                }
+            }
+        },
+        {
+            "Page_File": "AB_Editor.html",
+            "Page_Property": {
+                "TitleBar_Title": "Article Builder",
+                "Page": {
+                    "Title": "Editor",
+                    "Icon": "Assets/Icons/iconNew_edit.png",
+                    "MainView": {
+                        "UseFullContainer": true
+                    }
+                },
+                "Header": {
+                    "Title": "Article Builder",
+                    "Icon": "Assets/Icons/favicon.png",
+                    "Menu_Contents": {
+                        "PageNavigation": [
+                            {
+                                "Title": "Editor",
+                                "Link": "",
+                                "Icon": "Assets/Icons/iconNew_edit.png"
+                            },
+                            {
+                                "Title": "Github Repository",
+                                "Link": "https://github.com/ElmerF5445/Article-Builder",
+                                "Icon": "Assets/Icons/ContentByElmerF.png"
+                            }
+                        ],
+                        "Actions": [
+                            {
+                                "Title": "Import article file",
+                                "Link": null,
+                                "Icon": "Assets/Icons/iconNew_download.png",
+                                "OnclickFunction": "Subwindows_Open('AB_Editor_Article_Import')",
+                                "CloseAfterClick": true
+                            },
+                            {
+                                "Title": "Export article file",
+                                "Link": null,
+                                "Icon": "Assets/Icons/icon_output.png",
+                                "OnclickFunction": "Subwindows_Open('AB_Editor_Article_Export')",
+                                "CloseAfterClick": true
+                            },
+                            {
+                                "Title": "Preview",
+                                "Link": null,
+                                "Icon": "Assets/Icons/iconNew_preview.png",
+                                "OnclickFunction": "Editor_Article_Render_Preview()",
+                                "CloseAfterClick": true
+                            }
+                        ]
+                    }
+                },
+                "Sidebar": {
+                    "HideWhenCollapsed": false,
+                    "PushContentWhenExpanded": true,
+                    "Width_Expanded": 400,
+                    "Width_Collapsed": 40
+                },
+                "LoadingScreen": {
+                    "Configuration": "Splash"
+                },
+                "Features": {
+                    "Header": true,
+                    "Sidebar": true,
+                    "Sidebar_Elements": {
+                        "Toggle": true,
+                        "Container": true,
+                        "Tabs": false
+                    },
+                    "ClockScreen": true,
+                    "LoadingScreen": true,
+                    "StatusBar": true,
+                    "StatusBar_Elements": {
+                        "EnableAll": true,
+                        "Clock": true,
+                        "Battery": true,
+                        "Connection": true
+                    },
+                    "Ribbon": true,
+                    "Toasts": true,
+                    "Projects": false
+                }
             }
         }
-    }
-]
+    ]
+}

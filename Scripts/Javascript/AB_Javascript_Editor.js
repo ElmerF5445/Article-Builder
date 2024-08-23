@@ -382,7 +382,7 @@ function Editor_Article_Render_Data(){
             Element.querySelector(".Quote_Content").value = AB_Editor_Data.Contents[a].Content;
             Element.querySelector(".Quote_Source").value = AB_Editor_Data.Contents[a].Source;
         }
-        if (Element_Type == "Quote"){
+        if (Element_Type == "Video"){
             Element.querySelector(".Video_Source").value = AB_Editor_Data.Contents[a].Source;
         }
         
