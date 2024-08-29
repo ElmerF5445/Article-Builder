@@ -395,8 +395,8 @@ function Editor_Article_Render_Data(){
         }
         
     }
-    Editor_LastInteracted_Focus();
     TextArea_SnapToSize_All();
+    Editor_LastInteracted_Focus();
 }
 
 function Editor_Article_Data_Update(){
@@ -493,7 +493,7 @@ function Editor_LastInteracted_Set(ID){
 }
 function Editor_LastInteracted_Focus(){
     document.getElementById(Editor_Element_LastInteracted).focus();
-    Editor_Element_JumpTo(Editor_Element_LastInteracted);
+    // Editor_Element_JumpTo(Editor_Element_LastInteracted);
 }
 
 function Editor_Tag_Add(Tag_Opening, Tag_Closing){
