@@ -441,6 +441,7 @@ function Editor_Article_Data_Update(){
             AB_Editor_Data.Contents[a].Source = document.getElementById(`Element_${a}`).querySelector(".Video_Source").value;
         }
     }
+    Editor_Progress_Save();
     Editor_Article_Render();
 }
 
@@ -554,3 +555,18 @@ function Editor_Tag_Add(Tag_Opening, Tag_Closing){
          Editor_Tag_Add('<ol>', '</ol>'); 
      }
  });
+
+ function Editor_Progress_Save(){
+    localStorage.setItem("AB_Project_Progress", JSON.stringify(AB_Editor_Data));
+    document.getElementById("pageElement_Header_Title").innerHTML = "Editor | Progress saved [" + document.getElementById("Header_StatusTray_Clock_Time").innerText + "]";
+}
+
+function Editor_Progress_Load(){
+    if (localStorage.getItem("AB_Project_Progress") != null){
+        AB_Editor_Data = JSON.parse(localStorage.getItem("AB_Project_Progress"));
+        Editor_Article_Render();
+        Toasts_CreateToast("Assets/Icons/iconNew_download.png", "Progress loaded", "The editor had been loaded to its recent state.");
+    } else if (localStorage.getItem("AB_Project_Progress") == null){
+        Toasts_CreateToast("Assets/Icons/icon_error.png", "Progress not found", "There were no recent saved progress.");
+    }
+}

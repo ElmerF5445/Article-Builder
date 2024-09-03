@@ -2,6 +2,11 @@
     display: none;
 } */
 
+.AB_Renderer > *{
+    user-select: unset !important;
+    pointer-events: unset !important;
+}
+
 .AB_Renderer{
     display: flex;
     flex-direction: column;
