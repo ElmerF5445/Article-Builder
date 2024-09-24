@@ -707,33 +707,39 @@
                                 </div> -->
                                 
                             </div>
-                            <div class="AB_Editor_AddElements">
-                                <h3 class="AB_Editor_AddElements_Title">
-                                    Add elements
-                                </h3>
+                            <div class="AB_Editor_AddElements" id="AB_Editor_AddElements" State="Collapsed">
+                                <div class="AB_Editor_AddElements_Title_Bar"  onclick="Editor_Element_Selector_Toggle()">
+                                    <h3 class="AB_Editor_AddElements_Title">
+                                        Add elements
+                                    </h3>
+                                    <img src="Assets/Icons/icon_add.png" loading="lazy" draggable="false" class="AB_Editor_AddElements_Title_Toggle" id="AB_Editor_AddElements_Title_Toggle">
+                                </div>
                                 <div class="AB_Editor_AddElements_Buttons">
-                                    <button class="General_Button" onclick="Editor_Element_Add('Primary_Title')">
+                                    <button class="General_Button" onclick="Editor_Element_Add('Primary_Title')" id="AB_Editor_AddElements_Button_1">
                                         Primary title
                                     </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Secondary_Title')">
+                                    <button class="General_Button" onclick="Editor_Element_Add('Secondary_Title')" id="AB_Editor_AddElements_Button_2">
                                         Secondary title
                                     </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Paragraph')">
+                                    <button class="General_Button" onclick="Editor_Element_Add('Tertiary_Title')" id="AB_Editor_AddElements_Button_3">
+                                        Tertiary title
+                                    </button>
+                                    <button class="General_Button" onclick="Editor_Element_Add('Paragraph')" id="AB_Editor_AddElements_Button_4">
                                         Paragraph
                                     </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Numbered_List')">
+                                    <button class="General_Button" onclick="Editor_Element_Add('Numbered_List')" id="AB_Editor_AddElements_Button_5">
                                         Numbered list
                                     </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Bulleted_List')">
+                                    <button class="General_Button" onclick="Editor_Element_Add('Bulleted_List')" id="AB_Editor_AddElements_Button_6">
                                         Bulleted list
                                     </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Quote')">
+                                    <button class="General_Button" onclick="Editor_Element_Add('Quote')" id="AB_Editor_AddElements_Button_7">
                                         Quote
                                     </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Image')">
+                                    <button class="General_Button" onclick="Editor_Element_Add('Image')" id="AB_Editor_AddElements_Button_8">
                                         Image
                                     </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Video')">
+                                    <button class="General_Button" onclick="Editor_Element_Add('Video')" id="AB_Editor_AddElements_Button_9">
                                         Video
                                     </button>
                                 </div>

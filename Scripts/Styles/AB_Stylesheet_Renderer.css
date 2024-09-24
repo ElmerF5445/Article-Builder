@@ -12,6 +12,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    user-select: all !important;
+    pointer-events: all !important;
 }
 
 .AB_Renderer_Banner{
@@ -70,14 +72,22 @@
 .AB_Renderer_Title_Primary{
     font-family: var(--Text-Font-Primary);
     color: var(--Text-Color);
-    font-size: 35px;
+    font-size: 40px;
     font-weight: bold;
 }
 
 .AB_Renderer_Title_Secondary{
     font-family: var(--Text-Font-Primary);
     color: var(--Text-Color);
+    text-decoration: underline;
     font-size: 30px;
+}
+
+.AB_Renderer_Title_Tertiary{
+    font-family: var(--Text-Font-Primary);
+    color: var(--Text-Color);
+    font-style: italic;
+    font-size: 22px;
 }
 
 .AB_Renderer_Paragraph{

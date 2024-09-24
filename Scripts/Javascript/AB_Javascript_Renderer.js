@@ -34,6 +34,16 @@ function AB_Renderer_Article_Render(Data){
             Element.innerHTML = Element_InnerHTML;
             document.getElementById("AB_Renderer_Contents").appendChild(Element);
         }
+        if (Content_Data.Type == "Tertiary_Title"){
+            Element_InnerHTML = `
+                <h1 class="AB_Renderer_Title_Tertiary">
+                    ${Content_Data.Content}
+                </h1>
+            `;
+            var Element = document.createElement('span');
+            Element.innerHTML = Element_InnerHTML;
+            document.getElementById("AB_Renderer_Contents").appendChild(Element);
+        }
         if (Content_Data.Type == "Paragraph"){
             Element_InnerHTML = `
                 <p class="AB_Renderer_Paragraph">
