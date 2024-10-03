@@ -514,6 +514,7 @@ function Editor_Article_Import(){
 function Editor_Article_Render_Preview(){
     AB_Renderer_Article_Render(AB_Editor_Data);
     Tabs_ChangeTab_Specific(1, 'Sidebar');
+    Element_Attribute_Set("AB_Editor_AddElements", "State", "Collapsed");
 }
 
 function Editor_ElementList_Toggle(){
@@ -593,7 +594,7 @@ function Editor_Tag_Add(Tag_Opening, Tag_Closing){
          event.preventDefault();
          Editor_Tag_Add('<ol>', '</ol>'); 
      }
-    if (event.ctrlKey && event.key === 'ArrowRight') {
+    if (event.altKey && event.key === 'ArrowRight') {
         event.preventDefault();
         Sidebar_Toggle();
     }
@@ -669,7 +670,7 @@ function Editor_InsertionPoint_Set(Position){
 
 function Editor_Element_Selector_Toggle(){
     if(Element_Attribute_Get("AB_Editor_AddElements", "State") == "Collapsed"){
-        Element_Attribute_Set("AB_Editor_AddElements", "State", "Expanded");
+        
     } else {
         Element_Attribute_Set("AB_Editor_AddElements", "State", "Collapsed");
     }

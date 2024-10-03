@@ -2,9 +2,9 @@
     display: none;
 } */
 
-.AB_Renderer > *{
-    user-select: unset !important;
-    pointer-events: unset !important;
+.AB_Renderer *{
+    user-select: auto;
+    /* pointer-events: unset !important; */
 }
 
 .AB_Renderer{

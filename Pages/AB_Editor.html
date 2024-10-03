@@ -551,14 +551,52 @@
 			</div> -->
 		</div>
         <div class="Ribbon_Section" id="Ribbon_TabIDHere2">
-			<div class="Ribbon_Section_Item" onclick="Tabs_ChangeTab_Specific(0, 'Sidebar');">
+			<div class="Ribbon_Section_Item" onclick="Tabs_ChangeTab_Specific(0, 'Sidebar'); Element_Attribute_Set('AB_Editor_AddElements', 'State', 'Expanded');">
 				<img class="Ribbon_Section_Item_Icon" src="Assets/Icons/icon_leftArrow.png" />
 				<p class="Ribbon_Section_Item_Text">
 					Back to editor
 				</p>
 			</div>
 		</div>
+        
     </header>
+    <div class="AB_Editor_AddElements" id="AB_Editor_AddElements" State="Expanded">
+        <!-- <div class="AB_Editor_AddElements_Title_Bar"  onclick="Editor_Element_Selector_Toggle()">
+            <h3 class="AB_Editor_AddElements_Title">
+                Add elements
+            </h3>
+            <img src="Assets/Icons/icon_add.png" loading="lazy" draggable="false" class="AB_Editor_AddElements_Title_Toggle" id="AB_Editor_AddElements_Title_Toggle">
+        </div> -->
+        <div class="AB_Editor_AddElements_Buttons">
+            <button class="General_Button" onclick="Editor_Element_Add('Primary_Title')" id="AB_Editor_AddElements_Button_1">
+                <b>T1</b>
+            </button>
+            <button class="General_Button" onclick="Editor_Element_Add('Secondary_Title')" id="AB_Editor_AddElements_Button_2">
+                <b><u>T2</u></b>
+            </button>
+            <button class="General_Button" onclick="Editor_Element_Add('Tertiary_Title')" id="AB_Editor_AddElements_Button_3">
+                <b><i>T3</i></b>
+            </button>
+            <button class="General_Button" onclick="Editor_Element_Add('Paragraph')" id="AB_Editor_AddElements_Button_4">
+                P
+            </button>
+            <button class="General_Button" onclick="Editor_Element_Add('Numbered_List')" id="AB_Editor_AddElements_Button_5">
+                1.
+            </button>
+            <button class="General_Button" onclick="Editor_Element_Add('Bulleted_List')" id="AB_Editor_AddElements_Button_6">
+                •
+            </button>
+            <button class="General_Button" onclick="Editor_Element_Add('Quote')" id="AB_Editor_AddElements_Button_7">
+                "Q"
+            </button>
+            <button class="General_Button" onclick="Editor_Element_Add('Image')" id="AB_Editor_AddElements_Button_8">
+                📸
+            </button>
+            <button class="General_Button" onclick="Editor_Element_Add('Video')" id="AB_Editor_AddElements_Button_9">
+                📹
+            </button>
+        </div>
+    </div>
     <div class="Tabs_Vertical_Container_Selector Sidebar" id="Sidebar" State="Collapsed" Style_Margin_Header="Enabled">
         <div class="Tabs_Vertical_Container_Selector_Item" id="TabIDHere" onclick="Tabs_ChangeTab(this.id, 'Vertical')" Tabs_Tab_Title="Editor" Tabs_Tab_Target_Container="Content" Tabs_Tab_Target_Tab="tab_TabIDHere" Tabs_UseRibbon="true" Tabs_Tab_Target_Ribbon="Ribbon_TabIDHere" Tabs_UseHeaderTitle="true" State="Selected" Tabs_UseFullContainer="false" style="display: none">
 			<div class="Tabs_Vertical_Container_Selector_Item_Icon">
@@ -707,43 +745,7 @@
                                 </div> -->
                                 
                             </div>
-                            <div class="AB_Editor_AddElements" id="AB_Editor_AddElements" State="Collapsed">
-                                <div class="AB_Editor_AddElements_Title_Bar"  onclick="Editor_Element_Selector_Toggle()">
-                                    <h3 class="AB_Editor_AddElements_Title">
-                                        Add elements
-                                    </h3>
-                                    <img src="Assets/Icons/icon_add.png" loading="lazy" draggable="false" class="AB_Editor_AddElements_Title_Toggle" id="AB_Editor_AddElements_Title_Toggle">
-                                </div>
-                                <div class="AB_Editor_AddElements_Buttons">
-                                    <button class="General_Button" onclick="Editor_Element_Add('Primary_Title')" id="AB_Editor_AddElements_Button_1">
-                                        Primary title
-                                    </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Secondary_Title')" id="AB_Editor_AddElements_Button_2">
-                                        Secondary title
-                                    </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Tertiary_Title')" id="AB_Editor_AddElements_Button_3">
-                                        Tertiary title
-                                    </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Paragraph')" id="AB_Editor_AddElements_Button_4">
-                                        Paragraph
-                                    </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Numbered_List')" id="AB_Editor_AddElements_Button_5">
-                                        Numbered list
-                                    </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Bulleted_List')" id="AB_Editor_AddElements_Button_6">
-                                        Bulleted list
-                                    </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Quote')" id="AB_Editor_AddElements_Button_7">
-                                        Quote
-                                    </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Image')" id="AB_Editor_AddElements_Button_8">
-                                        Image
-                                    </button>
-                                    <button class="General_Button" onclick="Editor_Element_Add('Video')" id="AB_Editor_AddElements_Button_9">
-                                        Video
-                                    </button>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="AB_Container">

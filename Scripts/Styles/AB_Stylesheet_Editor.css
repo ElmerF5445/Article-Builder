@@ -211,31 +211,31 @@
 }
 
 .AB_Editor_AddElements{
-    width: calc(100% - 100px);
-    max-width: 1200px;
+    width: 100%;
+    /* max-width: 1200px; */
     padding: 10px;
     position: fixed;
-    z-index: 50;
-    top: 75px;
-    background-color: var(--BG-Color-General-Menus);
-    box-shadow: var(--Element-BoxShadow);
+    z-index: 1;
+    top: 71px;
+    background-color: var(--BG-Color-Overlay-Ribbon);
+    border-bottom: solid var(--Color-Borders);
     overflow: hidden;
     /* margin-right: 50px; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid var(--Color-Borders) 3px;
-    border-radius: 5px;
     /* margin-bottom: 30px; */
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .AB_Editor_AddElements[State = "Collapsed"]{
-    max-height: 35px;
+    max-height: 0px;
+    opacity: 0%;
 }
 
 .AB_Editor_AddElements[State = "Expanded"]{
     max-height: 100%;
+    opacity: 100%;
 }
 
 .AB_Editor_AddElements_Title_Bar{
@@ -267,12 +267,14 @@
     width: 100%;
     margin-top: 5px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    grid-template-columns: repeat(auto-fit, minmax(30px, 60px));
     grid-gap: 5px;
+    justify-content: center;
 }
 
 .AB_Editor_AddElements[State = "Collapsed"] > .AB_Editor_AddElements_Buttons{
-    opacity: 0%;
+    opacity: 100%;
     max-height: 0%;
 }
 
