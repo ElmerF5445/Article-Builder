@@ -114,6 +114,11 @@
                                 "Icon": "Assets/Icons/iconNew_edit.png"
                             },
                             {
+                                "Title": "Settings",
+                                "Link": "https://elmerf5445.github.io/ERUMA-UI/Pages/ERUMAUI_Settings.html",
+                                "Icon": "Assets/Icons/icon_settings.png"
+                            },
+                            {
                                 "Title": "Github Repository",
                                 "Link": "https://github.com/ElmerF5445/Article-Builder",
                                 "Icon": "Assets/Icons/ContentByElmerF.png"

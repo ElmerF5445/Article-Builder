@@ -14,6 +14,7 @@
     align-items: center;
     user-select: all !important;
     pointer-events: all !important;
+    
 }
 
 .AB_Renderer_Banner{
@@ -38,11 +39,16 @@
 .AB_Renderer_Header{
     width: 100%;
     max-width: 800px;
+    background-color: var(--BG-Color-MainView);
+    padding: 20px;
+    padding-top: 0px;
 }
 
 .AB_Renderer_Contents{
     width: 100%;
     max-width: 800px;
+    padding: 20px;
+    background-color: var(--BG-Color-MainView);
 }
 
 .AB_Renderer_Header_Title{

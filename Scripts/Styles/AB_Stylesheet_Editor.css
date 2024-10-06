@@ -100,6 +100,7 @@
     /* grid-area: Jump; */
     padding: 5px;
     border-radius: 5px;
+    filter: var(--Element-Icon-Brightness);
 }
 
 .AB_Sidebar_List_Item_Delete{
@@ -107,6 +108,7 @@
     /* grid-area: Delete; */
     padding: 5px;
     border-radius: 5px;
+    filter: var(--Element-Icon-Brightness);
 }
 
 .AB_Sidebar_List_Item_Jump:hover, .AB_Sidebar_List_Item_Delete:hover{
@@ -139,6 +141,7 @@
     /* overflow-y: auto; */
     grid-area: Editor;
     margin-top: 75px;
+    
 }
 
 .AB_Editor_MainContents{
@@ -146,6 +149,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .AB_Editor_Banner{
@@ -179,6 +183,8 @@
     width: 100%;
     max-width: 800px;
     border-bottom: solid var(--Color-Borders);
+    background-color: var(--BG-Color-MainView);
+    padding: 10px;
 }
 
 .AB_Editor_Input{
@@ -207,7 +213,9 @@
 .AB_Editor_Content{
     width: 100%;
     max-width: 800px;
+    padding: 10px;
     padding-bottom: 100px;
+    background-color: var(--BG-Color-MainView);
 }
 
 .AB_Editor_AddElements{

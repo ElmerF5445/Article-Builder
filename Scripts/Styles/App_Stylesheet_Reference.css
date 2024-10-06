@@ -22,36 +22,49 @@
 }
 
 :root{
-    --Debug-ElementOutline: none;
-	--BG-Img-Wallpaper-Main: url(../../Assets/Background/Wallpaper_Main.jpg);
+    --BG-Img-Wallpaper-Main: url(../../Assets/Background/Wallpaper_Main.png);
 	--BG-Img-Wallpaper-Clock: url(../../Assets/Background/Clock_Screen.png);
     --BG-Img-Wallpaper-Loading: url(../../Assets/Background/Splash.png);
-	--BG-Img-Splash: url(https://elmerf5445.github.io/Article-Builder/Assets/Background/Splash.png);
-
+	--BG-Img-Splash: url(../../Assets/Background/Splash.png);
+	--BG-Img-Wallpaper-Main-Blur: 20px;
+	--BG-Img-Wallpaper-Main-Darken: 40%;
+	--BG-Img-Wallpaper-Main-Opacity: 60%;
+	--Element-BackdropBlur: blur(10px);
+	--Debug-ElementOutline: none;
 	--Sidebar-Width-Expanded: 300px;
-	--Sidebar-Width-Collapsed: 50px;
-	
+	--Sidebar-Width-Collapsed: 40px;
 	--Element-Transition-Delay: 0.4s;
 	--Element-Animation-Duration: 0.5s;
 	--Element-BoxShadow: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgba( 0, 0, 0, 0.50); 
 	--Element-BoxShadow-Hover: 0cm 0cm 0.28218705792108cm 0.03527338224013cm rgba( 0, 0, 0, 0.50); 
-	/* --Element-BoxShadow-Hover: 0cm 0cm 0.28218705792108cm 0.03527338224013cm  var(--Accent-Color-Hover);  */
-	--Element-Icon-Brightness: brightness(1);
-	--Element-BackdropBlur: blur(10px);
 	--Element-ContentContainer-MarginnedWidth: 70%;
 	--Element-ContentContainer-Padding-Left: 15%;
 	--Element-ContentContainer-Padding-Right: 15%;
-
-	--BG-Color-Opacitated: rgba(28, 28, 28, 0.50);
-
 	--Text-Font-Primary: Alexandria, "Trebuchet MS", "Arial";
 	--Text-Font-Secondary: Roboto, "Arial", "Helvetica";
 	--Text-Font-Numbers: Alexandria, "Arial", "Helvetica";
-	--Text-Color: white;
 	
 	--Accent-Color: #2d65ff;
 	--Accent-Color-Hover: #517bee;
 	--Accent-Color-Focus: #0a41d8;
+
+	
+}
+
+body[Theme = "Dark"]{
+    
+	/* --BG-Img-Wallpaper-Main-Blur: 20px; */
+	/* --BG-Img-Wallpaper-Main-Opacity: 100%; */
+	
+	/* --Element-BoxShadow-Hover: 0cm 0cm 0.28218705792108cm 0.03527338224013cm  var(--Accent-Color-Hover);  */
+	--Element-Icon-Brightness: brightness(1);
+
+	--BG-Color-Opacitated: rgba(28, 28, 28, 0.50);
+
+	
+	--Text-Color: white;
+	
+	
 
 	--BG-Color-Scrollbar: transparent;
 	--BG-Color-Scrollbar-Thumb: var(--Accent-Color);
@@ -79,18 +92,18 @@
 	/* Primary buttons */
 	--BG-Color-Button-Primary: var(--Accent-Color);
 	--BG-Color-Button-Primary-Text: #222222;
-	--BG-Color-Button-Primary-Border-Primary: #3265f3;
-	--BG-Color-Button-Primary-Border-Secondary: #0a41d8;
+	--BG-Color-Button-Primary-Border-Primary: #9683fc;
+	--BG-Color-Button-Primary-Border-Secondary: #664bff;
 
 	--BG-Color-Button-Primary-Hover: var(--Accent-Color-Hover);
 	--BG-Color-Button-Primary-Text-Hover: #222222;
-	--BG-Color-Button-Primary-Border-Primary-Hover: #3265f3;
-	--BG-Color-Button-Primary-Border-Secondary-Hover: #0a41d8;
+	--BG-Color-Button-Primary-Border-Primary-Hover: #775fff;
+	--BG-Color-Button-Primary-Border-Secondary-Hover: #664bff;
 
 	--BG-Color-Button-Primary-Focus: var(--Accent-Color-Focus);
 	--BG-Color-Button-Primary-Text-Focus: #222222;
-	--BG-Color-Button-Primary-Border-Primary-Focus: #3265f3;
-	--BG-Color-Button-Primary-Border-Secondary-Focus: #0a41d8;
+	--BG-Color-Button-Primary-Border-Primary-Focus: #6a50ff;
+	--BG-Color-Button-Primary-Border-Secondary-Focus: #5739ff;
 
 	/* Secondary */
 	--BG-Color-Button-Secondary: #1b1a1a;
@@ -108,6 +121,7 @@
 	--BG-Color-Button-Secondary-Border-Primary-Focus: #2f2f2f;
 	--BG-Color-Button-Secondary-Border-Secondary-Focus: #2f2f2f;
 
+	/* Dependent on values above */
 	--BG-Color-Button-General: var(--BG-Color-Button-Secondary);
 	--BG-Color-Button-General-Text: white;
 	--BG-Color-Button-General-Hover: var(--BG-Color-Hover);
@@ -133,6 +147,110 @@
 	--BG-Color-Input-Accent-Hover: var(--Accent-Color-Hover);
 	--BG-Color-Input-Accent-Focus: var(--Accent-Color-Active);
 	--Color-Dividers: #303030;
+	--Color-Borders: var(--Color-Dividers);
+	--Color-Borders-Hover: var(--Accent-Color-Hover);
+	--Color-Borders-Focus: var(--Accent-Color-Focus);
+}
+
+body[Theme = "Light"]{
+    /* --Debug-ElementOutline: none; */
+	
+	/* --BG-Img-Wallpaper-Main-Darken: 100%; */
+	/* --BG-Img-Wallpaper-Main-Opacity: 60%; */
+	
+	/* --Element-BoxShadow-Hover: 0cm 0cm 0.28218705792108cm 0.03527338224013cm  var(--Accent-Color-Hover);  */
+	--Element-Icon-Brightness: brightness(0);
+	/* --Element-BackdropBlur: blur(10px); */
+	
+
+	--BG-Color-Opacitated: rgba(255, 255, 255, 0.5);
+
+	
+	--Text-Color: #303030;
+	
+	
+
+	--BG-Color-Scrollbar: transparent;
+	--BG-Color-Scrollbar-Thumb: var(--Accent-Color);
+	--BG-Color-Scrollbar-Thumb-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Selection: var(--Accent-Color);
+
+	--BG-Color-General: #f1f1f1;
+	--BG-Color-General-Menus: #dddcdc;
+
+	--BG-Color-MainView: #f7f7f7;
+
+	--BG-Color-LoadingScreen: #ebebeb;
+	--BG-Color-LoadingScreen-Splash-NameSpace: #ebebeb;
+	--BG-Color-LoadingScreen-Splash-Loader: #ebebeb;
+	
+	--BG-Color-Hover: #c9c9c9;
+	--BG-Color-Focus: #c5c5c5;
+
+	--BG-Color-Overlay-Header: #dddcdc;
+	--BG-Color-Overlay-Sidebar: #dddcdc;
+	--BG-Color-Overlay-Ribbon: #dddcdc;
+	--BG-Color-Overlay-CornerButtons: var(--Accent-Color);
+	--BG-Color-Overlay-CornerButtons-Hover: var(--Accent-Color-Hover);
+
+	/* Primary buttons */
+	--BG-Color-Button-Primary: var(--Accent-Color);
+	--BG-Color-Button-Primary-Text: #303030;
+	--BG-Color-Button-Primary-Border-Primary: #9683fc;
+	--BG-Color-Button-Primary-Border-Secondary: #664bff;
+
+	--BG-Color-Button-Primary-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Button-Primary-Text-Hover: #303030;
+	--BG-Color-Button-Primary-Border-Primary-Hover: #775fff;
+	--BG-Color-Button-Primary-Border-Secondary-Hover: #664bff;
+
+	--BG-Color-Button-Primary-Focus: var(--Accent-Color-Focus);
+	--BG-Color-Button-Primary-Text-Focus: #303030;
+	--BG-Color-Button-Primary-Border-Primary-Focus: #6a50ff;
+	--BG-Color-Button-Primary-Border-Secondary-Focus: #5739ff;
+
+	/* Secondary */
+	--BG-Color-Button-Secondary: #dadada;
+	--BG-Color-Button-Secondary-Text: #303030;
+	--BG-Color-Button-Secondary-Border-Primary: #cecece;
+	--BG-Color-Button-Secondary-Border-Secondary: #cecece;
+
+	--BG-Color-Button-Secondary-Hover: var(--BG-Color-Hover);
+	--BG-Color-Button-Secondary-Text-Hover: #303030;
+	--BG-Color-Button-Secondary-Border-Primary-Hover: #bbbbbb;
+	--BG-Color-Button-Secondary-Border-Secondary-Hover: #bbbbbb;
+
+	--BG-Color-Button-Secondary-Focus: #bdbdbd;
+	--BG-Color-Button-Secondary-Text-Focus: #303030;
+	--BG-Color-Button-Secondary-Border-Primary-Focus: #999999;
+	--BG-Color-Button-Secondary-Border-Secondary-Focus: #999999;
+
+	/* Dependent on values above */
+	--BG-Color-Button-General: var(--BG-Color-Button-Secondary);
+	--BG-Color-Button-General-Text: white;
+	--BG-Color-Button-General-Hover: var(--BG-Color-Hover);
+	--BG-Color-Button-General-Focus: var(--BG-Color-Focus);
+	--BG-Color-Button-General-Accent: #cccccc;
+	--BG-Color-Button-General-Accent-Hover: #b8b8b8;
+	--BG-Color-Button-General-Accent-Focus: var(--Color-Borders-Focus);
+	--BG-Color-Button-ToggleIndicator-Activated: var(--Accent-Color); 
+	--BG-Color-Button-ToggleIndicator-Deactivated: var(--BG-Color-Button-General); 
+	--BG-Color-Button-Dropdown: var(--BG-Color-Button-General); 
+	--BG-Color-Button-Dropdown-Hover: var(--BG-Color-Button-General-Hover);
+	--BG-Color-Button-Dropdown-Active: rgb(54, 54, 54);
+	--BG-Color-Button-Dropdown-Accent: var(--Accent-Color);
+	--BG-Color-Button-Dropdown-Accent-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Button-Dropdown-Accent-Active: var(--Accent-Color-Focus);
+	--BG-Color-Button-Dropdown-List: var(--BG-Color-Button-General);
+	--BG-Color-Button-Dropdown-List-Item-Hover: #282830;
+	--BG-Color-Subwindows: #dbdbdb;
+	--BG-Color-Input: var(--BG-Color-Button-General);
+	--BG-Color-Input-Hover: var(--BG-Color-Button-General-Hover);
+	--BG-Color-Input-Focus: var(--BG-Color-Button-General-Focus);
+	--BG-Color-Input-Accent: var(--Accent-Color);
+	--BG-Color-Input-Accent-Hover: var(--Accent-Color-Hover);
+	--BG-Color-Input-Accent-Focus: var(--Accent-Color-Active);
+	--Color-Dividers: #b6b6b6;
 	--Color-Borders: var(--Color-Dividers);
 	--Color-Borders-Hover: var(--Accent-Color-Hover);
 	--Color-Borders-Focus: var(--Accent-Color-Focus);
