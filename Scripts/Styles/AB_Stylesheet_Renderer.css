@@ -8,6 +8,10 @@
 }
 
 .AB_Renderer{
+    height: 100%;
+    width: calc(100% - 73px);
+    padding: 10px;
+    margin-left: 53px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,10 +27,12 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 840px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .AB_Renderer_Banner_Image{
@@ -161,9 +167,13 @@
     /* align-items: center; */
 }
 
+.AB_Renderer_Image_Container{
+    width: -webkit-fill-available;
+}
+
 .AB_Renderer_Image_Image{
-    width: fit-content;
-    max-width: 780px;
+    object-fit: contain;
+    width: -webkit-fill-available;
 }
 
 .AB_Renderer_Image_Description, .AB_Renderer_Image_Credits{
@@ -190,4 +200,11 @@
 
 .Ribbon_Toggle{
     display: none;
+}
+
+@media only screen and (max-width: 700px){
+    .AB_Renderer {
+        width: calc(100% - 20px);
+        margin-left: unset;
+    }
 }

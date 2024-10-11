@@ -1,6 +1,7 @@
 function AB_Renderer_Article_Render(Data){
     let Article_Data = Data;
     // Header
+    document.getElementById("AB_Renderer_Banner_Image").style.display = "block";
     document.getElementById("AB_Renderer_Banner_Image").src = Article_Data.Metadata.Article_Banner;
     document.getElementById("AB_Renderer_Header_Title").innerHTML = Article_Data.Metadata.Article_Title;
     document.getElementById("AB_Renderer_Header_Details_Author").innerHTML = Article_Data.Metadata.Article_Author;
@@ -126,7 +127,9 @@ function AB_Renderer_Article_Render(Data){
         if (Content_Data.Type == "Image"){
             Element_InnerHTML = `
                 <div class="AB_Renderer_Image">
-                    <img class='AB_Renderer_Image_Image' src='${Content_Data.Source}' draggable='false' loading='lazy'/>
+                    <div class="AB_Renderer_Image_Container">
+                        <img class='AB_Renderer_Image_Image' src='${Content_Data.Source}' draggable='false' loading='lazy'/>
+                    </div>
                     <p class="AB_Renderer_Image_Description">
                         ${Content_Data.Description}
                     </p>

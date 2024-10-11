@@ -1,0 +1,218 @@
+[
+    {
+        "Type": "Primary_Title",
+        "Editor_Data_Starting": {
+            "Type": "Primary_Title",
+            "Content": ""
+        },
+        "Editor_Element": "<textarea type='text' class='Input_Text_Long AB_Editor_Input AB_Element_Title AB_Element_Title_Primary AB_HereAdd_Element_ID AB_HereAdd_Interactable AB_HereAdd_Snappable AB_HereAdd_Updateable AB_HereAdd_Insertable AB_HereAdd_Element_Data' Data_Type='Value' Data_Key='Content' autocomplete='off' Autoresize='true' placeholder='Primary title' Element_Type='Title_Primary' value=''></textarea>",
+        "Editor_List": {
+            "Name": "Primary Title",
+            "Data_Key": "Content" 
+        },
+        "Editor_Data_Points": [
+            {
+                "QuerySelector": "AB_Element_Title_Primary",
+                "Key": "Content",
+                "Attribute": "value"
+            }
+        ]
+    },
+    {
+        "Type": "Secondary_Title",
+        "Editor_Data_Starting": {
+            "Type": "Secondary_Title",
+            "Content": ""
+        },
+        "Editor_Element": "<textarea type='text' class='Input_Text_Long AB_Editor_Input AB_Element_Title AB_Element_Title_Secondary AB_HereAdd_Element_ID AB_HereAdd_Interactable AB_HereAdd_Snappable AB_HereAdd_Updateable AB_HereAdd_Insertable AB_HereAdd_Element_Data' Data_Type='Value' Data_Key='Content' autocomplete='off' Autoresize='true' placeholder='Secondary title' Element_Type='Title_Secondary' value=''></textarea>",
+        "Editor_List": {
+            "Name": "Secondary Title",
+            "Data_Key": "Content" 
+        },
+        "Editor_Data_Points": [
+            {
+                "QuerySelector": "AB_Element_Title_Secondary",
+                "Key": "Content",
+                "Attribute": "value"
+            }
+        ]
+    },
+    {
+        "Type": "Tertiary_Title",
+        "Editor_Data_Starting": {
+            "Type": "Tertiary_Title",
+            "Content": ""
+        },
+        "Editor_Element": "<textarea type='text' class='Input_Text_Long AB_Editor_Input AB_Element_Title  AB_Element_Title_Tertiary AB_HereAdd_Element_ID AB_HereAdd_Interactable AB_HereAdd_Snappable AB_HereAdd_Updateable AB_HereAdd_Insertable AB_HereAdd_Element_Data' Data_Type='Value' Data_Key='Content' autocomplete='off' Autoresize='true' placeholder='Tertiary title' Element_Type='Title_Tertiary' value=''></textarea>",
+        "Editor_List": {
+            "Name": "Tertiary Title",
+            "Data_Key": "Content" 
+        },
+        "Editor_Data_Points": [
+            {
+                "QuerySelector": "AB_Element_Title_Tertiary",
+                "Key": "Content",
+                "Attribute": "value"
+            }
+        ]
+    },
+    {
+        "Type": "Paragraph",
+        "Editor_Data_Starting": {
+            "Type": "Paragraph",
+            "Content": ""
+        },
+        "Editor_Element": "<textarea type='text' class='Input_Text_Long AB_Editor_Input AB_Element_Paragraph AB_Element_Title_Paragraph AB_HereAdd_Element_ID AB_HereAdd_Interactable AB_HereAdd_Snappable AB_HereAdd_Updateable AB_HereAdd_Insertable AB_HereAdd_Element_Data' Data_Type='Value' Data_Key='Content' autocomplete='off' Autoresize='true' placeholder='Paragraph' Element_Type='Paragraph' value=''></textarea>",
+        "Editor_List": {
+            "Name": "Paragraph",
+            "Data_Key": "Content" 
+        },
+        "Editor_Data_Points": [
+            {
+                "QuerySelector": "AB_Element_Title_Paragraph",
+                "Key": "Content",
+                "Attribute": "value"
+            }
+        ]
+    },
+    {
+        "Type": "Image",
+        "Editor_Data_Starting": {
+            "Type": "Image",
+            "Source": "",
+            "Description": "",
+            "Credits": ""
+        },
+        "Editor_Element": "<div class='AB_Element_Image AB_HereAdd_Element_ID' Element_Type='Image'> <div class='AB_Element_Image_Container'><img class='AB_Element_Image_Image' draggable='false' loading='lazy'/></div> <input type='text' class='Input_Text AB_Editor_Input Image_Source AB_HereAdd_Updateable AB_HereAdd_Snappable AB_HereAdd_Interactable AB_HereAdd_Insertable' autocomplete='off' placeholder='Source'/> <input type='text' class='Input_Text AB_Editor_Input Image_Description AB_HereAdd_Updateable AB_HereAdd_Snappable AB_HereAdd_Interactable AB_HereAdd_Insertable' autocomplete='off' placeholder='Description'/> <input type='text' class='Input_Text AB_Editor_Input Image_Credits Image_Description AB_HereAdd_Updateable AB_HereAdd_Snappable AB_HereAdd_Interactable AB_HereAdd_Insertable' autocomplete='off' placeholder='Credits'/> </div>",
+        "Editor_List": {
+            "Name": "Image",
+            "Data_Key": "Description" 
+        },
+        "Editor_Data_Points": [
+            {
+                "QuerySelector": "AB_Element_Image_Image",
+                "Key": "Source",
+                "Attribute": "src"
+            },
+            {
+                "QuerySelector": "Image_Source",
+                "Key": "Source",
+                "Attribute": "value"
+            },
+            {
+                "QuerySelector": "Image_Description",
+                "Key": "Description",
+                "Attribute": "value"
+            },
+            {
+                "QuerySelector": "Image_Description",
+                "Key": "Description",
+                "Attribute": "value"
+            },
+            {
+                "QuerySelector": "Image_Credits",
+                "Key": "Credits",
+                "Attribute": "value"
+            }
+        ]
+    },
+    {
+        "Type": "Numbered_List",
+        "Editor_Data_Starting": {
+            "Type": "Numbered_List",
+            "Header": "",
+            "Content": ""
+        },
+        "Editor_Element": "<div class='AB_Element_List' Element_Type='Numbered_List'> <input type='text' class='Input_Text AB_Editor_Input List_Header AB_Element_List_Header' autocomplete='off' placeholder='Numbered list header'/> <textarea type='text' class='Input_Text_Long AB_Editor_Input List_Contents AB_Element_List_Contents' autocomplete='off' Autoresize='true' placeholder='List contents (Use line breaks to separate line items)'></textarea> </div>",
+        "Editor_List": {
+            "Name": "Numbered List",
+            "Data_Key": "Header" 
+        },
+        "Editor_Data_Points": [
+            {
+                "QuerySelector": "AB_Element_List_Header",
+                "Key": "Header",
+                "Attribute": "value"
+            },
+            {
+                "QuerySelector": "AB_Element_List_Contents",
+                "Key": "Content",
+                "Attribute": "value"
+            }
+        ]
+    },
+    {
+        "Type": "Bulleted_List",
+        "Editor_Data_Starting": {
+            "Type": "Bulleted_List",
+            "Header": "",
+            "Content": ""
+        },
+        "Editor_Element": "<div class='AB_Element_List' Element_Type='Bulleted_List'> <input type='text' class='Input_Text AB_Editor_Input List_Header AB_Element_List_Header' autocomplete='off' placeholder='Bulleted list header'/> <textarea type='text' class='Input_Text_Long AB_Editor_Input List_Contents AB_Element_List_Contents' autocomplete='off' Autoresize='true' placeholder='List contents (Use line breaks to separate line items)'></textarea> </div>",
+        "Editor_List": {
+            "Name": "Bulleted List",
+            "Data_Key": "Header" 
+        },
+        "Editor_Data_Points": [
+            {
+                "QuerySelector": "AB_Element_List_Header",
+                "Key": "Header",
+                "Attribute": "value"
+            },
+            {
+                "QuerySelector": "AB_Element_List_Contents",
+                "Key": "Content",
+                "Attribute": "value"
+            }
+        ]
+    },
+    {
+        "Type": "Quote",
+        "Editor_Data_Starting": {
+            "Type": "Quote",
+            "Content": "",
+            "Source": ""
+        },
+        "Editor_Element": "<div class='AB_Element_Quote' Element_Type='Quote'><h1 class='AB_Element_Quote_Apostrophe Apostrophe_1'>\"</h1> <textarea type='text' class='Input_Text_Long AB_Editor_Input AB_Element_Quote_Contents Quote_Content' autocomplete='off' Autoresize='true' placeholder='Quote'></textarea> <h1 class='AB_Element_Quote_Apostrophe Apostrophe_2'>\"</h1> <input type='text' class='Input_Text AB_Editor_Input AB_Element_Quote_Source Quote_Source' autocomplete='off' placeholder='Source'/> </div>",
+        "Editor_List": {
+            "Name": "Quote",
+            "Data_Key": "Content" 
+        },
+        "Editor_Data_Points": [
+            {
+                "QuerySelector": "AB_Element_Quote_Contents",
+                "Key": "Content",
+                "Attribute": "value"
+            },
+            {
+                "QuerySelector": "AB_Element_Quote_Source",
+                "Key": "Source",
+                "Attribute": "value"
+            }
+        ]
+    },
+    {
+        "Type": "Video",
+        "Editor_Data_Starting": {
+            "Type": "Video",
+            "Source": ""
+        },
+        "Editor_Element": "<div class='AB_Element_Video' Element_Type='Video'> <iframe class='AB_Element_Video_Video' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen=''></iframe> <input type='text' class='Input_Text AB_Editor_Input Video_Source' autocomplete='off' placeholder='Source'/> </div>",
+        "Editor_List": {
+            "Name": "Video",
+            "Data_Key": "Source" 
+        },
+        "Editor_Data_Points": [
+            {
+                "QuerySelector": "AB_Element_Video_Video",
+                "Key": "Source",
+                "Attribute": "src"
+            },
+            {
+                "QuerySelector": "Video_Source",
+                "Key": "Source",
+                "Attribute": "value"
+            }
+        ]
+    }
+]
