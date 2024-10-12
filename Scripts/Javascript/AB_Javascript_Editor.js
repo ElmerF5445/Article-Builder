@@ -56,89 +56,40 @@ let AB_Editor_Data = {
     ]
 }
 
-function Editor_Element_Add(Type){
-    let Editor_Element_Content = {};
-    if(Type == "Primary_Title"){
-        Editor_Element_Content = {
-            "Type": "Primary_Title",
-            "Content": "",
-            // "Height": "69px"
-        }
-        Editor_LastInteracted_Set("Element_" + AB_Editor_Data.Contents.length);
-    }
-    if (Type == "Secondary_Title"){
-        Editor_Element_Content = {
-            "Type": "Secondary_Title",
-            "Content": "",
-            // "Height": "63px"
-        }
-        Editor_LastInteracted_Set("Element_" + AB_Editor_Data.Contents.length);
-    }
-    if (Type == "Tertiary_Title"){
-        Editor_Element_Content = {
-            "Type": "Tertiary_Title",
-            "Content": "",
-            // "Height": "63px"
-        }
-        Editor_LastInteracted_Set("Element_" + AB_Editor_Data.Contents.length);
-    }
-    if (Type == "Paragraph"){
-        Editor_Element_Content = {
-            "Type": "Paragraph",
-            "Content": "",
-            // "Height": "56px"
-        }
-        Editor_LastInteracted_Set("Element_" + AB_Editor_Data.Contents.length);
-    }
-    if (Type == "Image"){
-        Editor_Element_Content = {
-            "Type": "Image",
-            "Source": "",
-            "Description": "",
-            "Credits": "" 
-        }
-        Editor_LastInteracted_Set("Element_Image_Source_" + AB_Editor_Data.Contents.length);
-    }
-    if (Type == "Numbered_List"){
-        Editor_Element_Content = {
-            "Type": "Numbered_List",
-            "Header": "",
-            "Content": ""
-        }
-        Editor_LastInteracted_Set("Element_List_Header_Numbered_" + AB_Editor_Data.Contents.length);
-    }
-    if (Type == "Bulleted_List"){
-        Editor_Element_Content = {
-            "Type": "Bulleted_List",
-            "Header": "",
-            "Content": ""
-        }
-        Editor_LastInteracted_Set("Element_List_Header_Bulleted_" + AB_Editor_Data.Contents.length);
-    }
-    if (Type == "Quote"){
-        Editor_Element_Content = {
-            "Type": "Quote",
-            "Content": "",
-            "Source": ""
-        }
-        Editor_LastInteracted_Set("Element_Quote_Content_" + AB_Editor_Data.Contents.length);
-    }
-    if (Type == "Video"){
-        Editor_Element_Content = {
-            "Type": "Video",
-            "Source": ""
-        }
-        Editor_LastInteracted_Set("Element_Video_Source_" + AB_Editor_Data.Contents.length);
-    }
-    
-    // AB_Editor_Data.Contents.push(Editor_Element_Content);
-    if (Editor_Element_InsertionPoint <= AB_Editor_Data.Contents.length){
-        AB_Editor_Data.Contents.splice(Editor_Element_InsertionPoint + 1, 0, Editor_Element_Content);
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    Editor_Element_Definitions_Load();
+});
+
+let AB_Editor_Element_Definitions = [];
+function Editor_Element_Definitions_Load(){
+    const request = new XMLHttpRequest();
+    request.open("GET", "Scripts/Javascript/AB_Editor_Elements_Definition.json", false);
+    request.send();
+    if (request.status === 200){
+        var response = request.responseText;
+        AB_Editor_Element_Definitions = JSON.parse(response);
     } else {
-        AB_Editor_Data.Contents.push(Editor_Element_Content);
+        console.error("An error has occured when loading the element definitions.");
+    }
+}
+
+function Editor_Element_Add(Type){
+    let Editor_Element_Definition = Editor_Element_Definitions_Find("Fetch", Type);
+    let Editor_Element_Content = null;
+    
+    if (Editor_Element_Definition != null){
+        Editor_Element_Content = Editor_Element_Definition.Editor_Data_Starting;
+        if (Editor_Element_InsertionPoint <= AB_Editor_Data.Contents.length){
+            AB_Editor_Data.Contents.splice(Editor_Element_InsertionPoint + 1, 0, Editor_Element_Content);
+        } else {
+            AB_Editor_Data.Contents.push(Editor_Element_Content);
+        }
+        Editor_Article_Render("Editor_Element_Add");
+    } else {
+        console.error("Element definition not found.");
     }
     
-    Editor_Article_Render();
 }
 
 function Editor_Element_Delete(Item){
@@ -177,14 +128,43 @@ function Editor_Element_Rearrange_Insert(Index_Above, Index_Below){
         Editor_Element_Rearrange_Switch_State = 0;
         
         Editor_Article_Render();
+
+        if (document.getElementById(`Element_${Index_Below - 1}_Input_0`) != null){
+            Editor_LastInteracted_Set(`Element_${Index_Below - 1}_Input_0`);
+        } else if (document.getElementById(`Element_${Index_Below - 1}_TextArea_0`) != null){
+            Editor_LastInteracted_Set(`Element_${Index_Below - 1}_TextArea_0`);
+        } 
     }
 }
 
 function Editor_Element_JumpTo(ID){
     document.getElementById(ID).scrollIntoView();
+    if (document.getElementById(`${ID}_Input_0`) != null){
+        Editor_LastInteracted_Set(`${ID}_Input_0`);
+    } else if (document.getElementById(`${ID}_TextArea_0`) != null){
+        Editor_LastInteracted_Set(`${ID}_TextArea_0`);
+    } 
+    Editor_LastInteracted_Focus();
 }
 
-function Editor_Article_Render(){
+function Editor_Element_Definitions_Find(Action, Type){
+    if (Action == "Fetch"){
+        let Definition = null;
+        for (Definition of AB_Editor_Element_Definitions){
+            if (Definition.Type == Type){
+                return Definition;
+            }
+        }
+        if (Definition == null){
+            console.error("Element definition not found.");
+            return null;
+        } else {
+            return Definition;
+        }
+    }
+}
+
+function Editor_Article_Render(Source){
     Editor_Element_Rearrange_Switch_State = 0;
     document.getElementById("AB_Editor_Content").innerHTML = "";
     document.getElementById("AB_Sidebar_List").innerHTML = "";
@@ -195,190 +175,78 @@ function Editor_Article_Render(){
     document.getElementById("AB_Editor_Header_Category").value = AB_Editor_Data.Metadata.Article_Category;
     document.getElementById("AB_Editor_Header_DatePublished").value = AB_Editor_Data.Metadata.Article_PublishingDate;
 
+    var Count = 0;
     // Generate inputs and sidebar items
-    for (a = 0; a < AB_Editor_Data.Contents.length; a++){
-        var Object = AB_Editor_Data.Contents[a];
-        var Element_InnerHTML = ``;
-        var Sidebar_InnerHTML = ``;
+    for (Content of AB_Editor_Data.Contents){
+        var Editor_Element_Definition = Editor_Element_Definitions_Find("Fetch", Content.Type);
+        if (Editor_Element_Definition != null){
+            var Editor_Element_InnerHTML = Editor_Element_Definition.Editor_Element;
+            var Sidebar_Element_Title = Editor_Element_Definition.Editor_List.Name;
+            var Sidebar_Element_Content = Content[Editor_Element_Definition.Editor_List.Data_Key];
 
-        Sidebar_InnerHTML = `
-            <div class="AB_Sidebar_List_Item" id="Sidebar_${a}">
-                <div class="AB_Sidebar_List_Item_Content" onclick="Editor_Element_Rearrange_Switch(${a}, this.parentNode.id)">
+            var Sidebar_Element_InnerHTML = `
+            <div class="AB_Sidebar_List_Item" id="Sidebar_${Count}">
+                <div class="AB_Sidebar_List_Item_Content" onclick="Editor_Element_Rearrange_Switch(${Count}, this.parentNode.id), Editor_Element_JumpTo('Element_${Count}')">
                     <p class="AB_Sidebar_List_Item_Type">
-                        ${Object.Type}
+                        ${Sidebar_Element_Title}
                     </p>
                     <p class="AB_Sidebar_List_Item_Text">
-                        ${Object.Content}
+                        ${Sidebar_Element_Content}
                     </p>
                 </div>
-                <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
-                <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
+                <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${Count}')"/>
+                <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${Count}')"/>
             </div>
-            <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${a}" onclick="Editor_Element_Rearrange_Insert(${a}, ${a + 1})">
-                <p class="AB_Sidebar_List_Item_Inserter_Text">
-                    Insert between
-                </p>
-            </div>
-        `;
-
-        if (Object.Type == "Primary_Title"){
-            Element_InnerHTML = `
-                <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Title" id="Element_${a}" autocomplete="off" Autoresize="true" placeholder="Primary title" Element_Type="Title_Primary" value="${Object.Content}" onchange="Editor_Article_Data_Update(), TextArea_SnapToSize(this.id)" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"></textarea>
-            `;
-        }
-        if (Object.Type == "Secondary_Title"){
-            Element_InnerHTML = `
-                <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Title" id="Element_${a}" autocomplete="off" Autoresize="true" placeholder="Secondary title" Element_Type="Title_Secondary" value="${Object.Content}" onchange="Editor_Article_Data_Update(), TextArea_SnapToSize(this.id)" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"></textarea>
-            `;
-        }
-        if (Object.Type == "Tertiary_Title"){
-            Element_InnerHTML = `
-                <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Title" id="Element_${a}" autocomplete="off" Autoresize="true" placeholder="Tertiary title" Element_Type="Title_Tertiary" value="${Object.Content}" onchange="Editor_Article_Data_Update(), TextArea_SnapToSize(this.id)" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"></textarea>
-            `;
-        }
-        if (Object.Type == "Paragraph"){
-            Element_InnerHTML = `
-                <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Paragraph" id="Element_${a}" autocomplete="off" Autoresize="true" placeholder="Paragraph" Element_Type="Paragraph" value="${Object.Content}" onchange="Editor_Article_Data_Update(), TextArea_SnapToSize(this.id)" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"></textarea>
-            `;
-        }
-        if (Object.Type == "Image"){
-            Element_InnerHTML = `
-                <div class="AB_Element_Image" Element_Type="Image" id="Element_${a}">
-                    <img class='AB_Element_Image_Image' src='${Object.Source}' draggable='false' loading='lazy'/>
-                    <input type="text" class="Input_Text AB_Editor_Input Image_Source" id="Element_Image_Source_${a}" autocomplete="off" placeholder="Source" value="${Object.Source}" onchange="Editor_Article_Data_Update()" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"/>
-
-                    <input type="text" class="Input_Text AB_Editor_Input Image_Description" id="Element_Image_Description_${a}"  autocomplete="off" placeholder="Description" value="${Object.Description}" onchange="Editor_Article_Data_Update()" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"/>
-
-                    <input type="text" class="Input_Text AB_Editor_Input Image_Credits" id="Element_Image_Credits_${a}"  autocomplete="off" placeholder="Credits" value="${Object.Credits}" onchange="Editor_Article_Data_Update()" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"/>
-                </div>
-            `;
-            Sidebar_InnerHTML = `
-                <div class="AB_Sidebar_List_Item" id="Sidebar_${a}">
-                    <div class="AB_Sidebar_List_Item_Content" onclick="Editor_Element_Rearrange_Switch(${a}, this.parentNode.id)">
-                        <p class="AB_Sidebar_List_Item_Type">
-                            ${Object.Type}
-                        </p>
-                        <p class="AB_Sidebar_List_Item_Text">
-                            ${Object.Description}
-                        </p>
-                    </div>
-                    <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
-                    <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
-                </div>
-                <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${a}" onclick="Editor_Element_Rearrange_Insert(${a}, ${a + 1})">
+            <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${Count}" onclick="Editor_Element_Rearrange_Insert(${Count}, ${Count + 1})">
                 <p class="AB_Sidebar_List_Item_Inserter_Text">
                     Insert between
                 </p>
             </div>
             `;
-        }
-        if (Object.Type == "Numbered_List"){
-            Element_InnerHTML = `
-                <div class="AB_Element_List" Element_Type="Numbered_List" id="Element_${a}">
-                    <input type="text" class="Input_Text AB_Editor_Input List_Header" id="Element_List_Header_Numbered_${a}"  autocomplete="off" placeholder="Numbered list header" onchange="Editor_Article_Data_Update()" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"/>
 
-                    <textarea type="text" class="Input_Text_Long AB_Editor_Input List_Contents" id="Element_List_Content_Numbered_${a}" autocomplete="off" Autoresize="true" placeholder="List contents (Use line breaks to separate line items)" onchange="Editor_Article_Data_Update()" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"></textarea>
-                </div>
-            `;
-            Sidebar_InnerHTML = `
-                <div class="AB_Sidebar_List_Item" id="Sidebar_${a}">
-                    <div class="AB_Sidebar_List_Item_Content" onclick="Editor_Element_Rearrange_Switch(${a}, this.parentNode.id)">
-                        <p class="AB_Sidebar_List_Item_Type">
-                            ${Object.Type}
-                        </p>
-                        <p class="AB_Sidebar_List_Item_Text">
-                            ${Object.Header}
-                        </p>
-                    </div>
-                    <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
-                    <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
-                </div>
-                <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${a}" onclick="Editor_Element_Rearrange_Insert(${a}, ${a + 1})">
-                <p class="AB_Sidebar_List_Item_Inserter_Text">
-                    Insert between
-                </p>
-            </div>
-            `;
-        }
-        if (Object.Type == "Bulleted_List"){
-            Element_InnerHTML = `
-                <div class="AB_Element_List" Element_Type="Bulleted_List" id="Element_${a}">
-                    <input type="text" class="Input_Text AB_Editor_Input List_Header" id="Element_List_Header_Bulleted_${a}"  autocomplete="off" placeholder="Bulleted list header" onchange="Editor_Article_Data_Update()" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"/>
+            var Editor_Element = document.createElement('span');
+            Editor_Element.setAttribute("id", `Element_${Count}`);
+            Editor_Element.setAttribute("class", "AB_Element");
+            Editor_Element.setAttribute("Element_Type", Content.Type);
+            Editor_Element.innerHTML = Editor_Element_InnerHTML;
 
-                    <textarea type="text" class="Input_Text_Long AB_Editor_Input List_Contents" id="Element_List_Content_Bulleted_${a}" autocomplete="off" Autoresize="true" placeholder="List contents (Use line breaks to separate line items)" onchange="Editor_Article_Data_Update()" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"></textarea>
-                </div>
-            `;
-            Sidebar_InnerHTML = `
-                <div class="AB_Sidebar_List_Item" id="Sidebar_${a}">
-                    <div class="AB_Sidebar_List_Item_Content" onclick="Editor_Element_Rearrange_Switch(${a}, this.parentNode.id)">
-                        <p class="AB_Sidebar_List_Item_Type">
-                            ${Object.Type}
-                        </p>
-                        <p class="AB_Sidebar_List_Item_Text">
-                            ${Object.Header}
-                        </p>
-                    </div>
-                    <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
-                    <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
-                </div>
-                <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${a}" onclick="Editor_Element_Rearrange_Insert(${a}, ${a + 1})">
-                <p class="AB_Sidebar_List_Item_Inserter_Text">
-                    Insert between
-                </p>
-            </div>
-            `;
-        }
-        if (Object.Type == "Quote"){
-            Element_InnerHTML = `
-                <div class="AB_Element_Quote" Element_Type="Quote" id="Element_${a}">
-                    <h1 class="AB_Element_Quote_Apostrophe Apostrophe_1">
-                        "
-                    </h1>
-                    <textarea type="text" class="Input_Text_Long AB_Editor_Input AB_Element_Quote_Contents Quote_Content" id="Element_Quote_Content_${a}" autocomplete="off" Autoresize="true" placeholder="Quote" onchange="Editor_Article_Data_Update()" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"></textarea>
+            var Sidebar_Element = document.createElement('span');
+            Sidebar_Element.innerHTML = Sidebar_Element_InnerHTML;
 
-                    <h1 class="AB_Element_Quote_Apostrophe Apostrophe_2">
-                        "
-                    </h1>
-                    <input type="text" class="Input_Text AB_Editor_Input AB_Element_Quote_Source Quote_Source" id="Element_Quote_Source_${a}"  autocomplete="off" placeholder="Source" onchange="Editor_Article_Data_Update()" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"/>
-                </div>
-            `;
-        }
-        if (Object.Type == "Video"){
-            Element_InnerHTML = `
-                <div class="AB_Element_Video" Element_Type="Video" id="Element_${a}">
-                    <iframe class="AB_Element_Video_Video" src="${Object.Source}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
-                    <input type="text" class="Input_Text AB_Editor_Input Video_Source" id="Element_Video_Source_${a}" autocomplete="off" placeholder="Source" onchange="Editor_Article_Data_Update()" oninput="TextArea_SnapToSize(this.id), Editor_LastInteracted_Set(this.id)" onfocus="Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${a})"/>
-                </div>
-            `;
-            Sidebar_InnerHTML = `
-                <div class="AB_Sidebar_List_Item" id="Sidebar_${a}">
-                    <div class="AB_Sidebar_List_Item_Content" onclick="Editor_Element_Rearrange_Switch(${a}, this.parentNode.id)">
-                        <p class="AB_Sidebar_List_Item_Type">
-                            ${Object.Type}
-                        </p>
-                        <p class="AB_Sidebar_List_Item_Text">
-                            ${Object.Source}
-                        </p>
-                    </div>
-                    <img class='AB_Sidebar_List_Item_Jump' src='Assets/Icons/iconNew_link.png' draggable='false' loading='lazy' onclick="Editor_Element_JumpTo('Element_${a}')"/>
-                    <img class='AB_Sidebar_List_Item_Delete' src='Assets/Icons/iconNew_delete.png' draggable='false' loading='lazy' onclick="Editor_Element_Delete('${a}')"/>
-                </div>
-                <div class="AB_Sidebar_List_Item_Inserter" id="Insert_${a}" onclick="Editor_Element_Rearrange_Insert(${a}, ${a + 1})">
-                <p class="AB_Sidebar_List_Item_Inserter_Text">
-                    Insert between
-                </p>
-            </div>
-            `;
-        }
-        var Element = document.createElement('span');
-        Element.innerHTML = Element_InnerHTML;
+            document.getElementById("AB_Editor_Content").appendChild(Editor_Element);
+            document.getElementById("AB_Sidebar_List").appendChild(Sidebar_Element);
 
-        var Sidebar = document.createElement('span');
-        Sidebar.innerHTML = Sidebar_InnerHTML;
-
-        document.getElementById("AB_Editor_Content").appendChild(Element);
-        document.getElementById("AB_Sidebar_List").appendChild(Sidebar);
+            var Editor_Element_TextAreas = document.getElementById(`Element_${Count}`).getElementsByTagName("textarea");
+            if (Editor_Element_TextAreas.length != 0){
+                for (b = 0; b <= Editor_Element_TextAreas.length - 1; b++){
+                    Editor_Element_TextAreas[b].setAttribute("id", `Element_${Count}_TextArea_${b}`);
+                    Editor_Element_TextAreas[b].setAttribute("onchange", `Editor_Article_Data_Update(), Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${Count}), TextArea_SnapToSize_All()`);
+                    Editor_Element_TextAreas[b].setAttribute("oninput", `Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${Count}), TextArea_SnapToSize_All()`);
+                    Editor_Element_TextAreas[b].setAttribute("onfocus", `Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${Count}), TextArea_SnapToSize_All()`);
+                }
+            }
+            
+            var Editor_Element_Inputs = document.getElementById(`Element_${Count}`).getElementsByTagName("input");
+            if (Editor_Element_Inputs.length != 0){
+                for (c = 0; c <= Editor_Element_Inputs.length - 1; c++){
+                    Editor_Element_Inputs[c].setAttribute("id", `Element_${Count}_Input_${c}`);
+                    Editor_Element_Inputs[c].setAttribute("onchange", `Editor_Article_Data_Update(), Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${Count}), TextArea_SnapToSize_All()`);
+                    Editor_Element_Inputs[c].setAttribute("oninput", `Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${Count}), TextArea_SnapToSize_All()`);
+                    Editor_Element_Inputs[c].setAttribute("onfocus", `Editor_LastInteracted_Set(this.id), Editor_InsertionPoint_Set(${Count}), TextArea_SnapToSize_All()`);
+                }
+            }
+            Count++;
+        }
     }
+
+    if (Source == "Editor_Element_Add"){
+        if (document.getElementById(`Element_${Count - 1}_Input_0`) != null){
+            Editor_LastInteracted_Set(`Element_${Count - 1}_Input_0`);
+        } else if (document.getElementById(`Element_${Count - 1}_TextArea_0`) != null){
+            Editor_LastInteracted_Set(`Element_${Count - 1}_TextArea_0`);
+        } 
+    }
+
     Editor_Article_Render_Data();
 }
 
@@ -390,43 +258,28 @@ function Editor_Article_Render_Data(){
     document.getElementById("AB_Editor_Header_Author").value = AB_Editor_Data.Metadata.Article_Author;
     document.getElementById("AB_Editor_Header_Category").value = AB_Editor_Data.Metadata.Article_Category;
     document.getElementById("AB_Editor_Header_DatePublished").value = AB_Editor_Data.Metadata.Article_PublishingDate;
+
     for (a = 0; a < AB_Editor_Data.Contents.length; a++){
         var Element = document.getElementById("Element_" + a);
         var Element_Type = AB_Editor_Data.Contents[a].Type;
-        if (Element_Type == "Primary_Title"){
-            Element.value = AB_Editor_Data.Contents[a].Content;
+        var Element_Definition = Editor_Element_Definitions_Find("Fetch", Element_Type);
+        var Element_DataPoints = Element_Definition.Editor_Data_Points;
+        for (b = 0; b < Element_DataPoints.length; b++){
+            var DataPoint = Element_DataPoints[b];
+            var DataPoint_Key = DataPoint.Key;
+            var DataPoint_Attribute = DataPoint.Attribute;
+            var DataPoint_QuerySelector = DataPoint.QuerySelector;
+            var DataPoint_Data = AB_Editor_Data.Contents[a][DataPoint_Key];
+            if (DataPoint_Data != null && DataPoint_Data != ""){
+                if (DataPoint_Attribute == "value"){
+                    Element.querySelector("." + DataPoint_QuerySelector).value = DataPoint_Data;
+                } else {
+                    Element.querySelector("." + DataPoint_QuerySelector).setAttribute(DataPoint_Attribute, DataPoint_Data);
+                }
+            }
         }
-        if (Element_Type == "Secondary_Title"){
-            Element.value = AB_Editor_Data.Contents[a].Content;
-        }
-        if (Element_Type == "Tertiary_Title"){
-            Element.value = AB_Editor_Data.Contents[a].Content;
-        }
-        if (Element_Type == "Paragraph"){
-            Element.value = AB_Editor_Data.Contents[a].Content;
-        }
-        if (Element_Type == "Image"){
-            Element.querySelector(".Image_Source").value = AB_Editor_Data.Contents[a].Source;
-            Element.querySelector(".Image_Description").value = AB_Editor_Data.Contents[a].Description;
-            Element.querySelector(".Image_Credits").value = AB_Editor_Data.Contents[a].Credits;
-        }
-        if (Element_Type == "Numbered_List"){
-            Element.querySelector(".List_Header").value = AB_Editor_Data.Contents[a].Header;
-            Element.querySelector(".List_Contents").value = AB_Editor_Data.Contents[a].Content;
-        }
-        if (Element_Type == "Bulleted_List"){
-            Element.querySelector(".List_Header").value = AB_Editor_Data.Contents[a].Header;
-            Element.querySelector(".List_Contents").value = AB_Editor_Data.Contents[a].Content;
-        }
-        if (Element_Type == "Quote"){
-            Element.querySelector(".Quote_Content").value = AB_Editor_Data.Contents[a].Content;
-            Element.querySelector(".Quote_Source").value = AB_Editor_Data.Contents[a].Source;
-        }
-        if (Element_Type == "Video"){
-            Element.querySelector(".Video_Source").value = AB_Editor_Data.Contents[a].Source;
-        }
-        
     }
+    
     TextArea_SnapToSize_All();
     Editor_LastInteracted_Focus();
 }
@@ -438,45 +291,30 @@ function Editor_Article_Data_Update(){
     AB_Editor_Data.Metadata.Article_Author = document.getElementById("AB_Editor_Header_Author").value;
     AB_Editor_Data.Metadata.Article_Category = document.getElementById("AB_Editor_Header_Category").value;
     AB_Editor_Data.Metadata.Article_PublishingDate = document.getElementById("AB_Editor_Header_DatePublished").value;
+
     for (a = 0; a < AB_Editor_Data.Contents.length; a++){
+        var Element = document.getElementById("Element_" + a);
         var Element_Type = Element_Attribute_Get("Element_" + a, "Element_Type");
-        if (Element_Type == "Title_Primary"){
-            AB_Editor_Data.Contents[a].Content = document.getElementById(`Element_${a}`).value;
-            // AB_Editor_Data.Contents[a].Height = document.getElementById(`Element_${a}`).style.height;
-        }
-        if (Element_Type == "Title_Secondary"){
-            AB_Editor_Data.Contents[a].Content = document.getElementById(`Element_${a}`).value;
-            // AB_Editor_Data.Contents[a].Height = document.getElementById(`Element_${a}`).style.height;
-        }
-        if (Element_Type == "Title_Tertiary"){
-            AB_Editor_Data.Contents[a].Content = document.getElementById(`Element_${a}`).value;
-            // AB_Editor_Data.Contents[a].Height = document.getElementById(`Element_${a}`).style.height;
-        }
-        if (Element_Type == "Paragraph"){
-            AB_Editor_Data.Contents[a].Content = document.getElementById(`Element_${a}`).value;
-            // AB_Editor_Data.Contents[a].Height = document.getElementById(`Element_${a}`).style.height;
-        }
-        if (Element_Type == "Image"){
-            AB_Editor_Data.Contents[a].Source = document.getElementById(`Element_${a}`).querySelector(".Image_Source").value;
-            AB_Editor_Data.Contents[a].Description = document.getElementById(`Element_${a}`).querySelector(".Image_Description").value;
-            AB_Editor_Data.Contents[a].Credits = document.getElementById(`Element_${a}`).querySelector(".Image_Credits").value;
-        }
-        if (Element_Type == "Numbered_List"){
-            AB_Editor_Data.Contents[a].Header = document.getElementById(`Element_${a}`).querySelector(".List_Header").value;
-            AB_Editor_Data.Contents[a].Content = document.getElementById(`Element_${a}`).querySelector(".List_Contents").value;
-        }
-        if (Element_Type == "Bulleted_List"){
-            AB_Editor_Data.Contents[a].Header = document.getElementById(`Element_${a}`).querySelector(".List_Header").value;
-            AB_Editor_Data.Contents[a].Content = document.getElementById(`Element_${a}`).querySelector(".List_Contents").value;
-        }
-        if (Element_Type == "Quote"){
-            AB_Editor_Data.Contents[a].Content = document.getElementById(`Element_${a}`).querySelector(".Quote_Content").value;
-            AB_Editor_Data.Contents[a].Source = document.getElementById(`Element_${a}`).querySelector(".Quote_Source").value;
-        }
-        if (Element_Type == "Video"){
-            AB_Editor_Data.Contents[a].Source = document.getElementById(`Element_${a}`).querySelector(".Video_Source").value;
+        var Element_Definition = Editor_Element_Definitions_Find("Fetch", Element_Type);
+        var Element_DataPoints = Element_Definition.Editor_Data_Points;
+        for (b = 0; b < Element_DataPoints.length; b++){
+            var DataPoint = Element_DataPoints[b];
+            var DataPoint_Key = DataPoint.Key;
+            var DataPoint_Attribute = DataPoint.Attribute;
+            var DataPoint_QuerySelector = DataPoint.QuerySelector;
+            // var DataPoint_Data = AB_Editor_Data.Contents[a][DataPoint_Key];
+            var DataPoint_Data;
+            if (DataPoint_Attribute == "value"){
+                DataPoint_Data = Element.querySelector("." + DataPoint_QuerySelector).value;
+            } else {
+                DataPoint_Data = Element.querySelector("." + DataPoint_QuerySelector).getAttribute(DataPoint_Attribute);
+            }
+            var Data_Copy = {...AB_Editor_Data.Contents[a]};
+            Data_Copy[DataPoint_Key] = DataPoint_Data;
+            AB_Editor_Data.Contents[a] = Data_Copy;
         }
     }
+    
     Editor_Progress_Save();
     Editor_Article_Render();
 }
@@ -502,7 +340,6 @@ function Editor_Article_Import(){
         const Contents = e.target.result;
         const Data_JSON = JSON.parse(Contents);
         AB_Editor_Data = Data_JSON;
-        // WLB_WatchList_Data = WLB_WatchList_Raw_Data.WLB_WatchList_Data;
         Editor_Article_Render();
         Toasts_CreateToast("Assets/Icons/iconNew_download.png", "Article imported", `Article data successfully loaded.`);
     }
@@ -525,7 +362,7 @@ function Editor_ElementList_Toggle(){
     }
 }
 
-var Editor_Element_LastInteracted;
+var Editor_Element_LastInteracted = null;
 function Editor_LastInteracted_Set(ID){
     Editor_Element_LastInteracted = ID;
 }
@@ -533,8 +370,6 @@ function Editor_LastInteracted_Focus(){
     if (document.getElementById(Editor_Element_LastInteracted) != null){
         document.getElementById(Editor_Element_LastInteracted).focus();
     }
-    
-    // Editor_Element_JumpTo(Editor_Element_LastInteracted);
 }
 
 function Editor_Tag_Add(Tag_Opening, Tag_Closing){
